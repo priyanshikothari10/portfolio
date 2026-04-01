@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html.theme-aurora.dark {
+  --aurora-cyan: #22d3ee;
+  --aurora-violet: #8b5cf6;
+  --aurora-purple: #a855f7;
+}
+
+html.theme-aurora.dark body {
+  background: #020617;
+  color: #e2e8f0;
+}
+
+html.theme-midnight.dark body {
+  background: #000000;
+  color: #d4d4d4;
+}
+
+html.theme-aurora.dark .glass {
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 211, 238, 0.14);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+html.theme-aurora.dark .glass.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.24);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.14),
+    0 0 56px -18px rgba(34, 211, 238, 0.14),
+    0 22px 48px -28px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 639px) {
+  html.theme-aurora.dark .glass.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 36px -14px rgba(34, 211, 238, 0.1);
+  }
+}
+
+html.theme-aurora.dark .featured-glow {
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.14),
+    0 0 60px -18px rgba(99, 102, 241, 0.25);
+}
+
+html.theme-aurora.dark .skill-bar-fill {
+  background: linear-gradient(to right, #22d3ee, #c084fc, #a855f7);
+}
+
+html.theme-aurora.dark .site-header {
+  border-color: rgba(34, 211, 238, 0.14);
+  background: rgba(2, 6, 23, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 1px 0 rgba(34, 211, 238, 0.12),
+    0 8px 32px -12px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 639px) {
+  html.theme-aurora.dark .site-header {
+    box-shadow:
+      0 1px 0 rgba(34, 211, 238, 0.08),
+      0 4px 24px -8px rgba(0, 0, 0, 0.35);
+  }
+}
+
+html.theme-aurora.dark a.aurora-nav-active {
+  color: #e0f2fe;
+  background: rgba(34, 211, 238, 0.1);
+  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2);
+}
+
+/* Scroll-in sections (Aurora only) */
+html.theme-aurora .aurora-reveal-section {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+html.theme-aurora .aurora-reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero name — gradient + subtle glow (controlled) */
+html.theme-aurora .aurora-hero-title {
+  filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.22)) drop-shadow(0 0 40px rgba(139, 92, 246, 0.12));
+}
+
+@media (max-width: 639px) {
+  html.theme-aurora .aurora-hero-title {
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.15));
+  }
+}
+
+/* Inner surfaces (skills, projects, etc.) */
+html.theme-aurora.dark .aurora-surface {
+  border-color: rgba(34, 211, 238, 0.1);
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+html.theme-aurora.dark .aurora-surface:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.22);
+  box-shadow: 0 12px 40px -16px rgba(34, 211, 238, 0.1);
+}
+
+@media (max-width: 639px) {
+  html.theme-aurora.dark .aurora-surface:hover {
+    transform: translateY(-1px);
+    box-shadow: none;
+  }
+}
+
+html.theme-aurora.dark #featured .featured-glow {
+  border-color: rgba(34, 211, 238, 0.16);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(145deg, #fafbff 0%, #f0f4ff 50%, #f5f3ff 100%);
+  color: #111827;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.dark.theme-midnight .glass {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-hover {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 12px 40px -12px rgba(79, 70, 229, 0.15);
+}
+
+.dark.theme-midnight .card-hover:hover {
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.mesh-blob {
+  animation: meshFloat 22s ease-in-out infinite;
+}
+
+@keyframes meshFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  33% {
+    transform: translate(3%, -2%) scale(1.03);
+  }
+  66% {
+    transform: translate(-2%, 2%) scale(0.98);
+  }
+}
+
+.featured-glow {
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.08),
+    0 20px 50px -20px rgba(79, 70, 229, 0.12);
+}
+
+.dark.theme-midnight .featured-glow {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Theme 4 — Midnight Minimal: outline display type */
+.dark.theme-midnight .text-outline-display {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.78);
+  text-shadow: none;
+}
+
+@media (min-width: 640px) {
+  .dark.theme-midnight .text-outline-display {
+    -webkit-text-stroke-width: 1.25px;
+  }
+}
+
+/* Theme 1 — Aurora Borealis */
+@keyframes auroraTwinkle {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.aurora-star {
+  animation-name: auroraTwinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes auroraOrbFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(3%, -4%) scale(1.04);
+  }
+  66% {
+    transform: translate(-3%, 3%) scale(0.97);
+  }
+}
+
+.aurora-orb-float {
+  animation: auroraOrbFloat 22s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb-float {
+    animation: none;
+  }
+
+  .aurora-star {
+    animation: none !important;
+    opacity: 0.35;
+  }
+
+  html.theme-aurora .aurora-reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes typingCaretBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-caret {
+  animation: typingCaretBlink 0.85s step-end infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatPhoto {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float-photo {
+  animation: floatPhoto 4s ease-in-out infinite;
+}
