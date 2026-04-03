@@ -34,7 +34,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/priyanshi-kothari-93975932a/";
 const GITHUB_URL = "https://github.com/priyanshikothari10";
 const TWITTER_URL = "https://x.com/Priyanshi1004";
 /** Replace with hosted PDF URL for production */
-const RESUME_URL = "#";
+const RESUME_URL = "/Resume.pdf";
 
 const navItems = [
   { id: "about", label: "About" },
@@ -359,6 +359,8 @@ export default function App() {
               </a>
               <a
                 href={RESUME_URL}
+                target="_blank"
+                rel="noreferrer"
                 className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition duration-300 ease-out ${
                   theme === "aurora"
                     ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1] hover:shadow-[0_0_24px_-8px_rgba(34,211,238,0.22)]"
