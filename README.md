@@ -1,6 +1,6 @@
 # 🌐 Priyanshi Kothari — Portfolio
 
-🚀 Live Website: http://priyanshicloud.space
+🚀 Live Website: https://priyanshi-kothari-portfolio.netlify.app
 
 ---
 
