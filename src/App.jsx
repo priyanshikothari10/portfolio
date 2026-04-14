@@ -60,11 +60,11 @@ const skills = [
 ];
 
 const featuredProject = {
-  name: "PortfoGen",
-  badge: "AI · Productivity",
+  name: "CitySamadhan",
+  badge: "Civic Tech",
   description:
-    "An AI-powered portfolio generator that helps users turn experience and skills into a polished, structured site in minutes—ideal for iterating quickly and staying recruiter-ready.",
-  stack: ["React", "Tailwind CSS", "AI / LLM integration", "Responsive UI"],
+    "Civic complaint management and issue reporting platform for structured urban problem tracking and resolution.",
+  stack: ["Web stack", "CRUD", "Reporting"],
   github: GITHUB_URL,
   live: "#",
 };
@@ -95,10 +95,10 @@ const projects = [
     live: "#",
   },
   {
-    name: "CitySamadhan",
+    name: "PortfoGen",
     description:
-      "Civic complaint management and issue reporting platform for structured urban problem tracking and resolution.",
-    stack: ["Web stack", "CRUD", "Reporting"],
+      "An AI-powered portfolio generator that helps users turn experience and skills into a polished, structured site in minutes—ideal for iterating quickly and staying recruiter-ready.",
+    stack: ["React", "Tailwind CSS", "AI / LLM integration", "Responsive UI"],
     github: GITHUB_URL,
     live: "#",
   },
@@ -127,6 +127,7 @@ const certifications = [
   { name: "RHCSA", detail: "Red Hat Certified System Administrator" },
   { name: "Oracle Fusion Cloud", detail: "Oracle Cloud certification" },
   { name: "MongoDB", detail: "GenAI certification" },
+  { name: "Docker", detail: "KodeKloud - Docker for the Absolute Beginner" },
 ];
 
 const currentFocus = [
