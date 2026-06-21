@@ -7,34 +7,41 @@
 ## 👩‍💻 About Me
 
 AI & Data Science student with a strong interest in **Cloud Computing and DevOps**.
-Focused on building scalable, reliable systems using modern technologies.
+Focused on building practical deployment, automation, and containerization projects.
 
-RHCSA certified with hands-on experience in **Linux (RHEL 9)**, system administration, and containerized environments.
+RHCSA certified with hands-on experience in **Linux (RHEL 9)**, Git, GitHub, AWS, Docker, Docker Compose, Ansible, and Kubernetes.
 
 ---
 
 ## 🛠 Tech Stack
 
 * **Languages:** C, C++, Java, Python
+* **Version Control:** Git, GitHub
+* **Cloud & DevOps:** AWS EC2, RDS, S3, Docker, Docker Compose, Ansible, Kubernetes
+* **Tools:** Linux RHEL 9, Apache, VS Code
 * **Web:** HTML, CSS, JavaScript, React
-* **Cloud & DevOps:** AWS, Docker, Kubernetes (Learning), CI/CD
-* **Tools:** Linux, Git, VS Code
 
 ---
 
 ## 🚀 Featured Projects
 
+### 🔹 LAMP Stack Deployment on AWS
+
+Manual server setup, Ansible automation, and AWS deployment using EC2, RDS, S3, IAM, and security groups.
+
+Repository: https://github.com/priyanshikothari10/LAMP-stack-project
+
+### 🔹 WordPress on Kubernetes
+
+Kubernetes deployment practice with WordPress, MySQL, persistent storage, services, secrets, scaling, rolling updates, and troubleshooting notes.
+
+Repository: https://github.com/priyanshikothari10/Containerized-WordPress-Application-on-Kubernetes
+
 ### 🔹 Docker Voting App
 
 Multi-container application deployed on AWS EC2 using Docker Compose, integrating Redis, PostgreSQL, and worker services.
 
-### 🔹 JustNeedMotivation
-
-Productivity web app with task tracking, daily goals, and progress visualization using Chart.js.
-
-### 🔹 Little Love Studio
-
-Interactive web application for creating and sharing personalized digital experiences with modern UI.
+Repository: https://github.com/priyanshikothari10/docker-voting-app
 
 ---
 
@@ -61,4 +68,4 @@ Deployed using **Netlify** with continuous integration from GitHub.
 
 ---
 
-✨ *Always learning, building, and improving.*
+✨ *Learning deeply, building consistently, and improving every day.*
