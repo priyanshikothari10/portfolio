@@ -24,15 +24,20 @@ import {
 const THEME_STORAGE_KEY = "portfolio-theme";
 
 const HERO_TYPING_PHRASES = [
-  "Building Scalable Cloud Systems",
-  "Exploring AI & DevOps",
-  "Turning Ideas into Reliable Solutions",
+  "Building Cloud Deployment Projects",
+  "Automating Linux and AWS Workflows",
+  "Learning DevOps by Shipping Real Systems",
 ];
 
 const CONTACT_EMAIL = "priyanshi.pro10@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/priyanshi-kothari-93975932a/";
 const GITHUB_URL = "https://github.com/priyanshikothari10";
 const TWITTER_URL = "https://x.com/Priyanshi1004";
+const LAMP_STACK_URL = "https://github.com/priyanshikothari10/LAMP-stack-project";
+const DOCKER_VOTING_URL = "https://github.com/priyanshikothari10/docker-voting-app";
+const K8S_WORDPRESS_URL =
+  "https://github.com/priyanshikothari10/Containerized-WordPress-Application-on-Kubernetes";
+const PORTFOLIO_URL = "https://github.com/priyanshikothari10/portfolio";
 /** Replace with hosted PDF URL for production */
 const RESUME_URL = "/Resume.pdf";
 
@@ -50,65 +55,46 @@ const navItems = [
 
 const skills = [
   { title: "Programming", items: "C, C++, Java, Python", level: 85 },
-  { title: "Web", items: "HTML, CSS, JavaScript", level: 88 },
+  { title: "Version Control", items: "Git, GitHub, branches, repositories", level: 86 },
   {
     title: "Cloud & DevOps",
-    items: "AWS, Docker, Kubernetes (learning), CI/CD (learning)",
-    level: 72,
+    items: "AWS EC2, RDS, S3, Docker, Ansible, Kubernetes",
+    level: 78,
   },
-  { title: "Tools", items: "Linux (RHEL 9), Git, VS Code", level: 82 },
+  { title: "Linux & Tools", items: "RHEL 9, shell, Apache, VS Code", level: 84 },
 ];
 
 const featuredProject = {
-  name: "CitySamadhan",
-  badge: "Civic Tech",
+  name: "LAMP Stack Deployment on AWS",
+  badge: "Cloud + Automation",
   description:
-    "Civic complaint management and issue reporting platform for structured urban problem tracking and resolution.",
-  stack: ["Web stack", "CRUD", "Reporting"],
-  github: GITHUB_URL,
-  live: "#",
+    "End-to-end LAMP stack project showing manual server setup, Ansible automation, and AWS deployment with EC2, RDS, S3, IAM, and security groups.",
+  stack: ["AWS EC2", "RDS", "S3", "Ansible", "Apache", "Linux"],
+  github: LAMP_STACK_URL,
 };
 
 const projects = [
+  {
+    name: "WordPress on Kubernetes",
+    description:
+      "Kubernetes deployment plan for WordPress with MySQL, persistent storage, services, secrets, scaling, rolling updates, and troubleshooting notes.",
+    stack: ["Kubernetes", "Docker", "MySQL", "PV/PVC", "Secrets", "Services"],
+    github: K8S_WORDPRESS_URL,
+  },
   {
     name: "Docker Voting App",
     description:
       "Multi-container app deployed on AWS EC2 with Docker Compose. Container networking with Redis, PostgreSQL, and workers for real-time vote processing.",
     stack: ["AWS EC2", "Docker", "Docker Compose", "Redis", "PostgreSQL"],
-    github: GITHUB_URL,
-    live: "#",
+    github: DOCKER_VOTING_URL,
   },
   {
-    name: "JustNeedMotivation",
+    name: "Portfolio Website",
     description:
-      "Next.js 14 productivity app with task management, daily goals, and progress visualization using Chart.js and Framer Motion.",
-    stack: ["Next.js 14", "Chart.js", "Framer Motion", "Tailwind CSS"],
-    github: GITHUB_URL,
-    live: "#",
-  },
-  {
-    name: "Little Love Studio",
-    description:
-      "Interactive web app to create and share personalized digital bouquets with animated UI and light storytelling.",
-    stack: ["Next.js", "Tailwind CSS", "Animation"],
-    github: GITHUB_URL,
-    live: "#",
-  },
-  {
-    name: "PortfoGen",
-    description:
-      "An AI-powered portfolio generator that helps users turn experience and skills into a polished, structured site in minutes—ideal for iterating quickly and staying recruiter-ready.",
-    stack: ["React", "Tailwind CSS", "AI / LLM integration", "Responsive UI"],
-    github: GITHUB_URL,
-    live: "#",
-  },
-  {
-    name: "Enterprise Asset Tracker",
-    description:
-      "Backend-oriented system to manage and track organizational assets with practical, real-world workflows.",
-    stack: ["Backend APIs", "Data modeling"],
-    github: GITHUB_URL,
-    live: "#",
+      "Responsive React portfolio deployed on Netlify with continuous deployment from GitHub, project links, resume access, and recruiter-friendly profile sections.",
+    stack: ["React", "Vite", "Netlify", "GitHub", "Responsive UI"],
+    github: PORTFOLIO_URL,
+    live: "https://priyanshi-kothari-portfolio.netlify.app/",
   },
 ];
 
@@ -131,10 +117,10 @@ const certifications = [
 ];
 
 const currentFocus = [
-  "Kubernetes and container orchestration",
-  "CI/CD pipelines and release automation",
-  "Data Structures & Algorithms",
-  "Scalable system design patterns",
+  "CI/CD pipelines with Jenkins and GitHub Actions",
+  "GitOps and infrastructure automation",
+  "Kubernetes troubleshooting and cluster operations",
+  "Terraform for AWS infrastructure provisioning",
 ];
 
 function Section({ id, eyebrow, title, subtitle, children, className = "", theme = "light" }) {
@@ -344,8 +330,8 @@ export default function App() {
                 theme === "aurora" ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
               }`}
             >
-              I focus on building scalable, reliable systems—bridging AI, data, Linux, and cloud
-              infrastructure so applications deploy, automate, and scale with clarity.
+              RHCSA-certified aspiring Cloud and DevOps Engineer building hands-on projects with
+              Linux, Git, GitHub, AWS, Docker, Ansible, and Kubernetes.
             </p>
             <div className="mt-12 flex flex-wrap gap-3 dark:gap-4">
               <a
@@ -431,7 +417,7 @@ export default function App() {
           id="about"
           eyebrow="About"
           title="Professional summary"
-          subtitle="Cloud, DevOps, Linux, and system design—in focus."
+          subtitle="Cloud, DevOps, Linux, Git/GitHub, and automation in focus."
         >
           <div
             className={`space-y-6 text-base leading-relaxed ${
@@ -448,29 +434,30 @@ export default function App() {
                   theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
                 }`}
               >
-                cloud platforms, DevOps, and systems that stay reliable at scale
+                cloud platforms, DevOps, Linux, and deployment automation
               </strong>
               .
             </p>
             <p>
-              RHCSA-certified with hands-on Linux (RHEL 9), system administration, and shell
-              workflows. I am building practical experience in{" "}
+              RHCSA-certified with hands-on Linux (RHEL 9), system administration, Git/GitHub, and
+              shell workflows. I have practical project experience in{" "}
               <strong
                 className={`font-semibold ${
                   theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
                 }`}
               >
-                AWS, containers, and CI/CD
+                AWS, Docker, Ansible, and Kubernetes
               </strong>{" "}
-              and care about how modern apps are deployed, automated, and observed in production.
+              and I care about how modern applications are deployed, automated, and maintained in
+              cloud environments.
             </p>
             <p
               className={
                 theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"
               }
             >
-              Goal: ship maintainable systems—strong fundamentals, clear documentation, and
-              alignment between code and infrastructure.
+              Goal: secure a Cloud or DevOps internship/fresher role where I can contribute to
+              deployment, automation, troubleshooting, and reliable infrastructure workflows.
             </p>
           </div>
         </Section>
@@ -603,16 +590,20 @@ export default function App() {
                   >
                     <Code2 size={16} /> GitHub
                   </a>
-                  <a
-                    href={featuredProject.live}
-                    className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold transition duration-300 ${
-                      theme === "aurora"
-                        ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1]"
-                        : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-200 dark:hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    <ExternalLink size={16} /> Live demo
-                  </a>
+                  {featuredProject.live ? (
+                    <a
+                      href={featuredProject.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold transition duration-300 ${
+                        theme === "aurora"
+                          ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1]"
+                          : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-200 dark:hover:bg-white/[0.04]"
+                      }`}
+                    >
+                      <ExternalLink size={16} /> Live demo
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -624,7 +615,7 @@ export default function App() {
           id="projects"
           eyebrow="Projects"
           title="Selected work"
-          subtitle="Real deployments, full-stack apps, and civic-tech style builds."
+          subtitle="Cloud deployments, containers, Kubernetes practice, and supporting application builds."
         >
           <div className="grid gap-5 sm:grid-cols-2">
             {projects.map((project) => (
@@ -664,16 +655,20 @@ export default function App() {
                   >
                     <Code2 size={13} /> GitHub
                   </a>
-                  <a
-                    href={project.live}
-                    className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-semibold transition duration-300 ${
-                      theme === "aurora"
-                        ? "border-cyan-400/25 bg-white/[0.06] text-slate-200 backdrop-blur-sm hover:border-violet-400/30"
-                        : "border-slate-200 bg-white text-slate-700 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-300"
-                    }`}
-                  >
-                    <ExternalLink size={13} /> Demo
-                  </a>
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-semibold transition duration-300 ${
+                        theme === "aurora"
+                          ? "border-cyan-400/25 bg-white/[0.06] text-slate-200 backdrop-blur-sm hover:border-violet-400/30"
+                          : "border-slate-200 bg-white text-slate-700 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-300"
+                      }`}
+                    >
+                      <ExternalLink size={13} /> Demo
+                    </a>
+                  ) : null}
                 </div>
               </article>
             ))}
@@ -828,7 +823,7 @@ export default function App() {
           id="focus"
           eyebrow="Current focus"
           title="Learning priorities"
-          subtitle="Kubernetes, CI/CD, DSA, and scalable systems."
+          subtitle="CI/CD, GitOps, Kubernetes operations, and infrastructure automation."
         >
           <ul className="grid gap-3 sm:grid-cols-2">
             {currentFocus.map((line) => (
