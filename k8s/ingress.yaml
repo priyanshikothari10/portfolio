@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: portfolio-ingress
+  namespace: portfolio
+
+spec:
+  ingressClassName: nginx
+
+  rules:
+  - host: portfolio.priyanshicloud.space
+
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: portfolio-service
+            port:
+              number: 80

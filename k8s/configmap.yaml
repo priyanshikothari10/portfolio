@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: portfolio-config
+  namespace: portfolio
+
+data:
+  APP_NAME: "Portfolio Website"
