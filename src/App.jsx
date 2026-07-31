@@ -695,50 +695,64 @@ export default function App() {
           title="Internship"
           subtitle="Enterprise cloud platform exposure."
         >
-          <div
-            className={`flex gap-4 rounded-lg border p-5 sm:p-6 ${
-              theme === "aurora"
-                ? "aurora-surface border-cyan-500/10"
-                : "border-slate-200/80 bg-white/60 dark:border-white/[0.06] dark:bg-transparent"
-            }`}
-          >
-            <div className="hidden shrink-0 sm:block">
-              <div
-                className={`flex h-12 w-12 items-center justify-center rounded-lg border ${
-                  theme === "aurora"
-                    ? "border-cyan-400/20 bg-cyan-500/10 text-cyan-300"
-                    : "border-indigo-100 bg-indigo-100 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-                }`}
-              >
-                <Building2 size={22} />
-              </div>
-            </div>
-            <div>
-              <h3
-                className={`font-poppins text-lg font-semibold ${
-                  theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                }`}
-              >
-                {experience.role}
-              </h3>
-              <p
-                className={`text-sm font-medium ${
-                  theme === "aurora" ? "text-violet-300/85" : "text-indigo-600 dark:text-neutral-500"
-                }`}
-              >
-                {experience.org} · {experience.period}
-              </p>
-              <ul
-                className={`mt-4 list-inside list-disc space-y-2 text-sm leading-relaxed ${
-                  theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"
-                }`}
-              >
-                {experience.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+<div className="space-y-6">
+  {experience.map((exp, index) => (
+    <div
+      key={index}
+      className={`flex gap-4 rounded-lg border p-5 sm:p-6 ${
+        theme === "aurora"
+          ? "aurora-surface border-cyan-500/10"
+          : "border-slate-200/80 bg-white/60 dark:border-white/[0.06] dark:bg-transparent"
+      }`}
+    >
+      <div className="hidden shrink-0 sm:block">
+        <div
+          className={`flex h-12 w-12 items-center justify-center rounded-lg border ${
+            theme === "aurora"
+              ? "border-cyan-400/20 bg-cyan-500/10 text-cyan-300"
+              : "border-indigo-100 bg-indigo-100 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
+          }`}
+        >
+          <Building2 size={22} />
+        </div>
+      </div>
+
+      <div>
+        <h3
+          className={`font-poppins text-lg font-semibold ${
+            theme === "aurora"
+              ? "text-slate-100"
+              : "text-slate-900 dark:text-neutral-100"
+          }`}
+        >
+          {exp.role}
+        </h3>
+
+        <p
+          className={`text-sm font-medium ${
+            theme === "aurora"
+              ? "text-violet-300/85"
+              : "text-indigo-600 dark:text-neutral-500"
+          }`}
+        >
+          {exp.org} · {exp.period}
+        </p>
+
+        <ul
+          className={`mt-4 list-inside list-disc space-y-2 text-sm leading-relaxed ${
+            theme === "aurora"
+              ? "text-slate-400"
+              : "text-slate-700 dark:text-neutral-400"
+          }`}
+        >
+          {exp.bullets.map((bullet, i) => (
+            <li key={i}>{bullet}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>
         </Section>
 
         <Section
