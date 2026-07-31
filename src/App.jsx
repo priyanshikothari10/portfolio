@@ -98,16 +98,29 @@ const projects = [
   },
 ];
 
-const experience = {
-  role: "Salesforce Programming Architect Intern",
-  org: "TechForce Academy Australia",
-  period: "Internship",
-  bullets: [
-    "Built and refined Salesforce solutions while learning platform limits, security models, and declarative vs. programmatic patterns.",
-    "Collaborated on architecture-minded tasks and documentation to align technical decisions with business requirements.",
-    "Strengthened fundamentals in Apex-adjacent concepts, automation, and cloud delivery in a remote, mentor-led environment.",
-  ],
-};
+const experience = [
+  {
+    role: "Certified Kubernetes Administrator (CKA) Intern",
+    org: "GRRAS Solutions Pvt. Ltd.",
+    period: "May 2026 – Jul 2026",
+    bullets: [
+      "Managed Kubernetes workloads using Deployments, Services, Ingress, ConfigMaps, Secrets, RBAC, and Persistent Volumes.",
+      "Performed rolling updates, scaling, troubleshooting, and cluster administration.",
+      "Worked extensively with Linux system administration and Kubernetes operations.",
+      "Deployed cloud-native applications using Docker, Kubernetes, and NGINX Ingress.",
+    ],
+  },
+  {
+    role: "Salesforce Programming Architect Intern",
+    org: "TechForce Academy Australia",
+    period: "Jun 2025 – Aug 2025",
+    bullets: [
+      "Built and refined Salesforce solutions while learning platform limits, security models, and declarative vs. programmatic patterns.",
+      "Collaborated on architecture-minded tasks and documentation to align technical decisions with business requirements.",
+      "Strengthened fundamentals in Apex-adjacent concepts, automation, and cloud delivery in a remote, mentor-led environment.",
+    ],
+  },
+];
 
 const certifications = [
   { name: "RHCSA", detail: "Red Hat Certified System Administrator" },
