@@ -24,9 +24,9 @@ import {
 const THEME_STORAGE_KEY = "portfolio-theme";
 
 const HERO_TYPING_PHRASES = [
-  "Building Cloud Deployment Projects",
-  "Automating Linux and AWS Workflows",
-  "Learning DevOps by Shipping Real Systems",
+  "Aspiring Cloud & DevOps Engineer",
+  "Kubernetes & AWS Enthusiast",
+  "Building and Automating Cloud Deployments",
 ];
 
 const CONTACT_EMAIL = "priyanshi.pro10@gmail.com";
@@ -54,53 +54,97 @@ const navItems = [
 ];
 
 const skills = [
-  { title: "Programming", items: "C, C++, Java, Python", level: 85 },
-  { title: "Version Control", items: "Git, GitHub, branches, repositories", level: 86 },
   {
     title: "Cloud & DevOps",
-    items: "AWS EC2, RDS, S3, Docker, Ansible, Kubernetes",
-    level: 78,
+    items: ["AWS EC2", "AWS RDS", "AWS S3", "Docker", "Ansible", "Jenkins"],
   },
-  { title: "Linux & Tools", items: "RHEL 9, shell, Apache, VS Code", level: 84 },
+  {
+    title: "Kubernetes",
+    items: [
+      "Deployments",
+      "Services",
+      "Ingress",
+      "RBAC",
+      "ConfigMaps",
+      "Secrets",
+      "PV/PVC",
+      "HPA",
+    ],
+  },
+  {
+    title: "Linux & System Administration",
+    items: ["RHEL 9", "Ubuntu", "Shell", "Apache", "System Administration"],
+  },
+  {
+    title: "Version Control & CI/CD",
+    items: ["Git", "GitHub", "Jenkins", "GitHub Actions", "Branches", "Repositories"],
+  },
+  {
+    title: "Programming",
+    items: ["Python", "JavaScript", "C", "C++", "Java"],
+  },
 ];
 
 const featuredProject = {
-  name: "LAMP Stack Deployment on AWS",
-  badge: "Cloud + Automation",
+  name: "DevOps-Enabled Portfolio Deployment",
+  badge: "Docker + Kubernetes + AWS",
   description:
-    "End-to-end LAMP stack project showing manual server setup, Ansible automation, and AWS deployment with EC2, RDS, S3, IAM, and security groups.",
-  stack: ["AWS EC2", "RDS", "S3", "Ansible", "Apache", "Linux"],
-  github: LAMP_STACK_URL,
+    "Transformed a React + Vite portfolio from a basic web deployment into a containerized application managed with Kubernetes and hosted on AWS EC2, with Docker Hub, Services, NGINX Ingress, ConfigMaps, Secrets, replicas, and HPA.",
+  stack: [
+    "React + Vite",
+    "Docker",
+    "Docker Hub",
+    "Kubernetes",
+    "AWS EC2",
+    "NGINX Ingress",
+    "HPA",
+  ],
+  github: PORTFOLIO_URL,
+  live: "https://priyanshi-kothari-portfolio.netlify.app/",
+  architecture: [
+    "React + Vite",
+    "Docker",
+    "Docker Hub",
+    "Kubernetes",
+    "NGINX Ingress",
+    "AWS EC2",
+    "Custom Domain",
+  ],
+  highlights: [
+    "Containerized the React application and published the image to Docker Hub.",
+    "Configured Kubernetes Deployments, replicas, Services, ConfigMaps, and Secrets.",
+    "Configured NGINX Ingress for application routing and added Horizontal Pod Autoscaling.",
+    "Deployed the application on AWS EC2 and connected it to a custom domain.",
+  ],
 };
 
 const projects = [
   {
-    name: "WordPress on Kubernetes",
+    name: "LAMP Stack Deployment on AWS",
     description:
-      "Kubernetes deployment plan for WordPress with MySQL, persistent storage, services, secrets, scaling, rolling updates, and troubleshooting notes.",
-    stack: ["Kubernetes", "Docker", "MySQL", "PV/PVC", "Secrets", "Services"],
-    github: K8S_WORDPRESS_URL,
+      "Deployed a LAMP-stack application on AWS using EC2 and RDS, with S3 for storage, IAM and Security Groups for access control, and Ansible for server configuration automation.",
+    stack: ["AWS EC2", "RDS", "S3", "IAM", "Security Groups", "Ansible", "Apache", "Linux"],
+    github: LAMP_STACK_URL,
   },
   {
     name: "Docker Voting App",
     description:
-      "Multi-container app deployed on AWS EC2 with Docker Compose. Container networking with Redis, PostgreSQL, and workers for real-time vote processing.",
+      "Deployed a multi-container voting application on AWS EC2 using Docker Compose, with container networking across Redis, PostgreSQL, worker, voting, and result-processing services.",
     stack: ["AWS EC2", "Docker", "Docker Compose", "Redis", "PostgreSQL"],
     github: DOCKER_VOTING_URL,
   },
   {
-    name: "Portfolio Website",
+    name: "WordPress on Kubernetes",
     description:
-      "Responsive React portfolio deployed on Netlify with continuous deployment from GitHub, project links, resume access, and recruiter-friendly profile sections.",
-    stack: ["React", "Vite", "Netlify", "GitHub", "Responsive UI"],
-    github: PORTFOLIO_URL,
-    live: "https://priyanshi-kothari-portfolio.netlify.app/",
+      "Designed and practiced a Kubernetes architecture for WordPress and MySQL with persistent storage, Services, Secrets, scaling, rolling updates, and troubleshooting workflows.",
+    stack: ["Kubernetes", "Docker", "MySQL", "PV/PVC", "Secrets", "Services"],
+    github: K8S_WORDPRESS_URL,
   },
 ];
 
 const experience = [
   {
-    role: "Certified Kubernetes Administrator (CKA) Intern",
+    role: "Kubernetes Administrator Intern",
     org: "GRRAS Solutions Pvt. Ltd.",
     period: "May 2026 – Jul 2026",
     bullets: [
@@ -130,10 +174,10 @@ const certifications = [
 ];
 
 const currentFocus = [
-  "CI/CD pipelines with Jenkins and GitHub Actions",
-  "GitOps and infrastructure automation",
-  "Kubernetes troubleshooting and cluster operations",
-  "Terraform for AWS infrastructure provisioning",
+  "Jenkins and CI/CD pipeline automation with GitHub integration",
+  "Kubernetes troubleshooting, networking, storage, and cluster operations",
+  "Infrastructure automation with Ansible and learning Terraform for AWS",
+  "Cloud deployment workflows and containerized application delivery",
 ];
 
 function Section({ id, eyebrow, title, subtitle, children, className = "", theme = "light" }) {
@@ -186,6 +230,44 @@ function TechStack({ items, theme }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function ProofCard({ icon, value, label, theme }) {
+  return (
+    <div
+      className={
+        theme === "aurora"
+          ? "aurora-surface flex min-w-[150px] flex-1 items-center gap-3 rounded-xl border p-4"
+          : "flex min-w-[150px] flex-1 items-center gap-3 rounded-xl border border-slate-200/80 bg-white/60 p-4 dark:border-white/[0.06] dark:bg-transparent"
+      }
+    >
+      <div
+        className={
+          theme === "aurora"
+            ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-500/10 text-cyan-300"
+            : "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-indigo-100 bg-indigo-50 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-300"
+        }
+      >
+        {icon}
+      </div>
+      <div>
+        <p
+          className={`text-sm font-semibold ${
+            theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
+          }`}
+        >
+          {value}
+        </p>
+        <p
+          className={`mt-0.5 text-xs ${
+            theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"
+          }`}
+        >
+          {label}
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -343,8 +425,8 @@ export default function App() {
                 theme === "aurora" ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
               }`}
             >
-              RHCSA-certified aspiring Cloud and DevOps Engineer building hands-on projects with
-              Linux, Git, GitHub, AWS, Docker, Ansible, and Kubernetes.
+              RHCSA-certified B.Tech student with hands-on experience in Linux, AWS, Docker, Ansible, and Kubernetes.
+              Recently completed a Kubernetes Administrator internship and currently expanding my expertise in Jenkins and CI/CD.
             </p>
             <div className="mt-12 flex flex-wrap gap-3 dark:gap-4">
               <a
@@ -425,6 +507,17 @@ export default function App() {
           </div>
         </section>
 
+        {/* Quick proof points */}
+        <section className="relative mx-auto w-full max-w-6xl px-4 pb-6 sm:px-6 lg:px-8">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <ProofCard theme={theme} icon={<Award size={18} />} value="RHCSA" label="Certified" />
+            <ProofCard theme={theme} icon={<Building2 size={18} />} value="Kubernetes" label="Internship completed" />
+            <ProofCard theme={theme} icon={<Cloud size={18} />} value="AWS" label="Hands-on deployments" />
+            <ProofCard theme={theme} icon={<Code2 size={18} />} value="Docker" label="Containerization" />
+            <ProofCard theme={theme} icon={<Wand2 size={18} />} value="Jenkins" label="CI/CD in progress" />
+          </div>
+        </section>
+
         <Section
           theme={theme}
           id="about"
@@ -433,44 +526,20 @@ export default function App() {
           subtitle="Cloud, DevOps, Linux, Git/GitHub, and automation in focus."
         >
           <div
-            className={`space-y-6 text-base leading-relaxed ${
+            className={`space-y-5 text-base leading-relaxed ${
               theme === "aurora"
                 ? "text-slate-400"
                 : "text-slate-700 dark:text-neutral-400"
             }`}
           >
             <p>
-              B.Tech student in Artificial Intelligence and Data Science at Arya College of
-              Engineering & IT, Jaipur, with a clear focus on{" "}
-              <strong
-                className={`font-semibold ${
-                  theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                }`}
-              >
-                cloud platforms, DevOps, Linux, and deployment automation
-              </strong>
-              .
+              I’m a B.Tech student in <strong className={theme === "aurora" ? "font-semibold text-slate-100" : "font-semibold text-slate-900 dark:text-neutral-100"}>Artificial Intelligence &amp; Data Science</strong> with a focused interest in Cloud and DevOps engineering. I’m RHCSA-certified and have hands-on experience with Linux, Git/GitHub, AWS, Docker, Ansible, and Kubernetes.
             </p>
             <p>
-              RHCSA-certified with hands-on Linux (RHEL 9), system administration, Git/GitHub, and
-              shell workflows. I have practical project experience in{" "}
-              <strong
-                className={`font-semibold ${
-                  theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                }`}
-              >
-                AWS, Docker, Ansible, and Kubernetes
-              </strong>{" "}
-              and I care about how modern applications are deployed, automated, and maintained in
-              cloud environments.
+              I recently completed a <strong className={theme === "aurora" ? "font-semibold text-slate-100" : "font-semibold text-slate-900 dark:text-neutral-100"}>Kubernetes Administrator Internship at GRRAS Solutions Pvt. Ltd.</strong>, where I worked with Kubernetes workloads, networking, storage, RBAC, scaling, and troubleshooting. I’ve also built and deployed practical projects involving AWS infrastructure, Docker, Kubernetes, and automation.
             </p>
-            <p
-              className={
-                theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"
-              }
-            >
-              Goal: secure a Cloud or DevOps internship/fresher role where I can contribute to
-              deployment, automation, troubleshooting, and reliable infrastructure workflows.
+            <p className={theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"}>
+              I’m currently strengthening my skills in <strong className={theme === "aurora" ? "font-semibold text-slate-300" : "font-semibold text-slate-800 dark:text-neutral-300"}>Jenkins, CI/CD, Kubernetes operations, and infrastructure automation</strong>, with the goal of starting my career in a Cloud, DevOps, or Kubernetes-focused role where I can contribute to real-world deployment and infrastructure workflows.
             </p>
           </div>
         </Section>
@@ -492,45 +561,33 @@ export default function App() {
                     : "rounded-lg border border-slate-200/80 bg-white/60 p-6 dark:border-white/[0.06] dark:bg-transparent"
                 }
               >
-                <div className="mb-3 flex items-center justify-between gap-2">
-                  <h3
-                    className={`font-poppins text-base font-semibold ${
-                      theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                    }`}
-                  >
-                    {skill.title}
-                  </h3>
-                  <span
-                    className={`text-xs font-semibold tabular-nums ${
-                      theme === "aurora" ? "text-cyan-400/85" : "text-indigo-600 dark:text-neutral-500"
-                    }`}
-                  >
-                    {skill.level}%
-                  </span>
-                </div>
-                <p
-                  className={`text-sm ${
-                    theme === "aurora" ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
+                <h3
+                  className={`font-poppins text-base font-semibold ${
+                    theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
                   }`}
                 >
-                  {skill.items}
-                </p>
-                <div className="mt-4 h-0.5 overflow-hidden rounded-full bg-slate-200/80 dark:bg-white/[0.06]">
-                  <div
-                    className={`h-full rounded-full transition-all duration-700 ${
-                      theme === "aurora"
-                        ? "skill-bar-fill"
-                        : "bg-gradient-to-r from-indigo-500 to-sky-400 dark:from-neutral-500 dark:to-neutral-400"
-                    }`}
-                    style={{ width: `${skill.level}%` }}
-                  />
+                  {skill.title}
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <span
+                      key={item}
+                      className={
+                        theme === "aurora"
+                          ? "rounded-md border border-cyan-400/20 bg-slate-950/45 px-2.5 py-1.5 text-xs font-medium text-slate-300"
+                          : "rounded-md border border-indigo-200/80 bg-white/80 px-2.5 py-1.5 text-xs font-medium text-indigo-900 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
+                      }
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </article>
             ))}
           </div>
         </Section>
 
-        {/* Featured — PortfoGen */}
+        {/* Featured — DevOps Portfolio Deployment */}
         <section
           id="featured"
           className={`relative mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-14 sm:px-6 lg:px-8 dark:py-24 ${
@@ -590,6 +647,45 @@ export default function App() {
                   {featuredProject.description}
                 </p>
                 <TechStack theme={theme} items={featuredProject.stack} />
+
+                <div className="mt-7">
+                  <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${theme === "aurora" ? "text-cyan-400/75" : "text-indigo-600 dark:text-neutral-500"}`}>
+                    Deployment flow
+                  </p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {featuredProject.architecture.map((step, index) => (
+                      <div key={step} className="flex items-center gap-2">
+                        <span
+                          className={
+                            theme === "aurora"
+                              ? "rounded-md border border-cyan-400/20 bg-slate-950/50 px-2.5 py-1.5 text-xs font-medium text-slate-300"
+                              : "rounded-md border border-indigo-200/80 bg-white/80 px-2.5 py-1.5 text-xs font-medium text-indigo-900 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
+                          }
+                        >
+                          {step}
+                        </span>
+                        {index < featuredProject.architecture.length - 1 ? (
+                          <ArrowRight size={14} className={theme === "aurora" ? "text-violet-400/70" : "text-indigo-400"} />
+                        ) : null}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-7">
+                  <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${theme === "aurora" ? "text-cyan-400/75" : "text-indigo-600 dark:text-neutral-500"}`}>
+                    What I implemented
+                  </p>
+                  <ul className={`mt-3 grid gap-2 text-sm leading-relaxed sm:grid-cols-2 ${theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"}`}>
+                    {featuredProject.highlights.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className={theme === "aurora" ? "mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" : "mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href={featuredProject.github}
@@ -628,7 +724,7 @@ export default function App() {
           id="projects"
           eyebrow="Projects"
           title="Selected work"
-          subtitle="Cloud deployments, containers, Kubernetes practice, and supporting application builds."
+          subtitle="Cloud deployments, containers, Kubernetes, automation, and practical application delivery."
         >
           <div className="grid gap-5 sm:grid-cols-2">
             {projects.map((project) => (
@@ -850,7 +946,7 @@ export default function App() {
           id="focus"
           eyebrow="Current focus"
           title="Learning priorities"
-          subtitle="CI/CD, GitOps, Kubernetes operations, and infrastructure automation."
+          subtitle="Jenkins, CI/CD, Kubernetes operations, cloud deployment, and infrastructure automation."
         >
           <ul className="grid gap-3 sm:grid-cols-2">
             {currentFocus.map((line) => (
@@ -877,8 +973,20 @@ export default function App() {
           id="contact"
           eyebrow="Contact"
           title="Get in touch"
-          subtitle="Email or socials—responses for opportunities and collaborations."
+          subtitle="Currently open to Cloud, DevOps, Kubernetes, and Cloud Engineering internship or entry-level opportunities."
         >
+          <div
+            className={`mb-8 rounded-xl border p-5 ${
+              theme === "aurora"
+                ? "border-cyan-400/15 bg-cyan-500/[0.04]"
+                : "border-indigo-200/70 bg-indigo-50/50 dark:border-white/[0.06] dark:bg-transparent"
+            }`}
+          >
+            <p className={`text-sm leading-relaxed ${theme === "aurora" ? "text-slate-300" : "text-slate-700 dark:text-neutral-400"}`}>
+              I’m currently looking for opportunities where I can contribute to <strong className={theme === "aurora" ? "font-semibold text-slate-100" : "font-semibold text-slate-900 dark:text-neutral-100"}>cloud infrastructure, deployment automation, Kubernetes operations, and CI/CD workflows</strong> while continuing to grow as a Cloud &amp; DevOps Engineer.
+            </p>
+          </div>
+
           <form className="grid gap-4 sm:grid-cols-2">
             <label className="sm:col-span-1">
               <span
@@ -1007,7 +1115,7 @@ export default function App() {
         }`}
       >
         <p className="inline-flex items-center justify-center gap-1">
-          <Cloud size={14} aria-hidden />© {new Date().getFullYear()} Priyanshi Kothari · Portfolio
+          <Cloud size={14} aria-hidden />Built, deployed, and maintained by Priyanshi Kothari · React · Docker · Kubernetes · AWS
         </p>
       </footer>
     </div>
