@@ -81,7 +81,7 @@ const skills = [
   },
   {
     title: "Programming",
-    items: ["Python", "JavaScript", "C", "C++", "Java"],
+    items: ["C", "C++" ],
   },
 ];
 
