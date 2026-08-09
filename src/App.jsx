@@ -935,7 +935,7 @@ export default function App() {
                   theme === "aurora" ? "text-cyan-400/90" : "text-indigo-700 dark:text-neutral-400"
                 }`}
               >
-                CGPA: 8.82
+                CGPA: 8.78
               </p>
             </div>
           </div>
