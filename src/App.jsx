@@ -5,6 +5,10 @@ import TypingHero from "./components/TypingHero.jsx";
 import InteractiveTerminal from "./components/InteractiveTerminal.jsx";
 import DeployPipeline from "./components/DeployPipeline.jsx";
 import CommandPalette from "./components/CommandPalette.jsx";
+import HPAScalingSimulator from "./components/HPAScalingSimulator.jsx";
+import LiveStatusBadge from "./components/LiveStatusBadge.jsx";
+import DeployHistory from "./components/DeployHistory.jsx";
+import ResumeYaml from "./components/ResumeYaml.jsx";
 import {
   ArrowRight,
   Award,
@@ -543,6 +547,10 @@ export default function App() {
 
         <InteractiveTerminal theme={theme} />
         <DeployPipeline theme={theme} />
+        <HPAScalingSimulator theme={theme} />
+        <LiveStatusBadge theme={theme} />
+        <DeployHistory theme={theme} />
+        <ResumeYaml theme={theme} />
 
         {/* Quick proof points */}
         <section className="relative mx-auto w-full max-w-6xl px-4 pb-6 sm:px-6 lg:px-8">
