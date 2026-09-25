@@ -526,7 +526,7 @@ export default function App() {
                     <img
                       src={profile}
                       alt="Priyanshi Kothari"
-                      className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
+                      className="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.04]"
                     />
                   </div>
                 </div>
@@ -537,7 +537,7 @@ export default function App() {
                   <img
                     src={profile}
                     alt="Priyanshi Kothari"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
               </div>
