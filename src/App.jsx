@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import profile from "./assets/formal-photo.jpeg";
+import profile from "./assets/professional-portrait.png";
 import SoftGradientBackground from "./components/SoftGradientBackground.jsx";
 import TypingHero from "./components/TypingHero.jsx";
 import InteractiveTerminal from "./components/InteractiveTerminal.jsx";
