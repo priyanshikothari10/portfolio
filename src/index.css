@@ -323,3 +323,24 @@ body {
 .animate-float-photo {
   animation: floatPhoto 4s ease-in-out infinite;
 }
+
+.architecture-connection {
+  animation: architectureConnection 0.55s ease-out both;
+}
+
+@keyframes architectureConnection {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .architecture-connection {
+    animation: none;
+  }
+}

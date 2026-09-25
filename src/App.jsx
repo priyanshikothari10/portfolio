@@ -7,6 +7,8 @@ import DeployPipeline from "./components/DeployPipeline.jsx";
 import CommandPalette from "./components/CommandPalette.jsx";
 import LiveStatusBadge from "./components/LiveStatusBadge.jsx";
 import ResumeYaml from "./components/ResumeYaml.jsx";
+import InteractiveProjectArchitecture from "./components/InteractiveProjectArchitecture.jsx";
+import DevOpsTroubleshootingLab from "./components/DevOpsTroubleshootingLab.jsx";
 import {
   ArrowRight,
   Award,
@@ -824,6 +826,9 @@ export default function App() {
             ))}
           </div>
         </Section>
+
+        <InteractiveProjectArchitecture theme={theme} />
+        <DevOpsTroubleshootingLab theme={theme} />
 
         <Section
           theme={theme}
