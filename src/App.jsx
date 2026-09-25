@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import profile from "./assets/profile.png";
 import SoftGradientBackground from "./components/SoftGradientBackground.jsx";
 import TypingHero from "./components/TypingHero.jsx";
+import InteractiveTerminal from "./components/InteractiveTerminal.jsx";
+import DeployPipeline from "./components/DeployPipeline.jsx";
+import CommandPalette from "./components/CommandPalette.jsx";
 import {
   ArrowRight,
   Award,
@@ -296,6 +299,25 @@ export default function App() {
   }, [theme]);
 
   const [activeSection, setActiveSection] = useState("hero");
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      const target = event.target;
+      const isTextField = target instanceof HTMLElement && (
+        target.matches("input, textarea, select") || target.isContentEditable
+      );
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setPaletteOpen(true);
+      } else if (event.key === "/" && !isTextField) {
+        event.preventDefault();
+        setPaletteOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   useEffect(() => {
     if (theme !== "aurora") return;
@@ -349,6 +371,18 @@ export default function App() {
             >
               Priyanshi Kothari
             </a>
+            <button
+              type="button"
+              onClick={() => setPaletteOpen(true)}
+              className={`ml-auto inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium transition ${
+                theme === "aurora"
+                  ? "border-cyan-400/20 bg-white/[0.05] text-slate-300 hover:border-violet-400/35 hover:bg-white/[0.1]"
+                  : "border-indigo-200 bg-white/80 text-slate-600 hover:bg-indigo-50 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
+              }`}
+              aria-label="Search anything"
+            >
+              Search anything <kbd className="rounded border border-current/20 px-1">/</kbd>
+            </button>
             <label className="flex items-center gap-2">
               {theme === "aurora" ? (
                 <Sparkles size={16} className="text-cyan-400/90" aria-hidden />
@@ -506,6 +540,9 @@ export default function App() {
             )}
           </div>
         </section>
+
+        <InteractiveTerminal theme={theme} />
+        <DeployPipeline theme={theme} />
 
         {/* Quick proof points */}
         <section className="relative mx-auto w-full max-w-6xl px-4 pb-6 sm:px-6 lg:px-8">
@@ -1118,6 +1155,7 @@ export default function App() {
           <Cloud size={14} aria-hidden />Built, deployed, and maintained by Priyanshi Kothari · React · Docker · Kubernetes · AWS
         </p>
       </footer>
+      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
     </div>
   );
 }
