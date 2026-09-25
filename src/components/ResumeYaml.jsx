@@ -1,23 +1,69 @@
 import { useState } from "react";
-import { Download } from "lucide-react";
+import { Download, Terminal, X } from "lucide-react";
 
 const RESUME_URL = "/Resume.pdf";
 
-const rows = [
-  ["name", "Priyanshi Kothari"], ["role", "Aspiring Cloud & DevOps Engineer"], ["certifications", "[RHCSA, Oracle Fusion Cloud, MongoDB GenAI, Docker]"],
-  ["skills.cloud_devops", "[AWS, Docker, Ansible, Jenkins]"], ["skills.kubernetes", "[Deployments, Services, Ingress, RBAC, HPA]"],
-  ["education", "B.Tech, Artificial Intelligence & Data Science"], ["contact", "priyanshi.pro10@gmail.com"],
+const yamlData = [
+  { key: "apiVersion", value: "portfolio.devops/v1" },
+  { key: "kind", value: "CloudEngineerResume" },
+  { key: "metadata.name", value: "priyanshi-kothari" },
+  { key: "spec.candidate.name", value: "Priyanshi Kothari" },
+  { key: "spec.candidate.role", value: "Cloud & DevOps Engineer" },
+  { key: "spec.candidate.education", value: "B.Tech — AI & Data Science (CGPA: 8.78)" },
+  { key: "spec.certifications", value: "[RHCSA, Oracle Fusion Cloud, MongoDB GenAI, Docker]" },
+  { key: "spec.internships", value: "[Kubernetes Administrator Intern @ GRRAS Solutions, Salesforce Arch Intern @ TechForce]" },
+  { key: "spec.skills.cloud", value: "[AWS EC2, RDS, S3, IAM, Security Groups]" },
+  { key: "spec.skills.orchestration", value: "[Kubernetes, Docker, Docker Compose, NGINX Ingress, HPA]" },
+  { key: "spec.skills.automation", value: "[Ansible, Jenkins, GitHub Actions, Linux System Admin]" },
+  { key: "spec.contact.email", value: "priyanshi.pro10@gmail.com" },
 ];
 
-export default function ResumeYaml({ theme }) {
+export default function ResumeYaml({ theme, onClose }) {
   const [downloaded, setDownloaded] = useState(false);
-  const aurora = theme === "aurora";
+
   return (
-    <section id="resume-yaml" className={`relative mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-14 sm:px-6 lg:px-8 dark:py-24 ${aurora ? "aurora-reveal-section" : ""}`}>
-      <div className="glass card-hover rounded-2xl border border-white/50 p-6 shadow-sm shadow-indigo-100/30 dark:rounded-xl dark:border-white/[0.06] dark:bg-black/25 dark:shadow-none sm:p-12 lg:p-14"><p className={`mb-2 text-xs font-semibold uppercase tracking-[0.2em] ${aurora ? "text-cyan-400/80" : "text-indigo-600 dark:text-neutral-500"}`}>Configuration as code</p><h2 className="font-poppins text-2xl font-bold tracking-tight text-slate-900 dark:text-neutral-100 sm:text-3xl">My resume, declaratively</h2>
-        <div className="mt-10 overflow-hidden rounded-xl border border-cyan-400/20 bg-slate-950/75"><div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] bg-white/[0.04] px-4 py-3"><span className="font-mono text-xs text-slate-400">resume.yaml</span><a href={RESUME_URL} download="Priyanshi_Kothari_Resume.pdf" onClick={() => setDownloaded(true)} className="inline-flex items-center gap-2 rounded-md border border-cyan-400/20 bg-cyan-500/10 px-3 py-1.5 font-mono text-xs text-cyan-100 transition hover:border-violet-400/35 hover:bg-violet-500/10"><Download size={14} /> kubectl apply -f resume.yaml</a></div><pre className="overflow-x-auto p-5 font-mono text-sm leading-7">{rows.map(([key, value]) => <div key={key}><span className="text-cyan-300">{key}:</span> <span className="text-violet-300">{value}</span></div>)}</pre></div>
-        {downloaded ? <p className="mt-4 font-mono text-xs text-emerald-300">$ kubectl apply -f resume.yaml → downloading Priyanshi_Kothari_Resume.pdf…</p> : null}
+    <div className="rounded-xl border border-cyan-400/20 bg-slate-950/85 p-5 shadow-[0_0_40px_-10px_rgba(34,211,238,0.25)] backdrop-blur-xl text-left">
+      <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+        <div className="flex items-center gap-2">
+          <Terminal size={16} className="text-cyan-400" />
+          <span className="font-mono text-xs font-semibold text-slate-200">resume.yaml — Declarative Configuration</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <a
+            href={RESUME_URL}
+            download="Priyanshi_Kothari_Resume.pdf"
+            onClick={() => setDownloaded(true)}
+            className="inline-flex items-center gap-1.5 rounded border border-cyan-400/30 bg-cyan-500/10 px-2.5 py-1 font-mono text-[11px] font-semibold text-cyan-200 transition hover:bg-cyan-500/20"
+          >
+            <Download size={13} /> kubectl apply -f resume.yaml
+          </a>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded p-1 text-slate-400 hover:text-slate-100"
+              aria-label="Close YAML view"
+            >
+              <X size={16} />
+            </button>
+          )}
+        </div>
       </div>
-    </section>
+
+      <pre className="mt-4 overflow-x-auto p-3 font-mono text-xs leading-6 text-slate-300">
+        {yamlData.map((item) => (
+          <div key={item.key}>
+            <span className="text-cyan-300">{item.key}:</span>{" "}
+            <span className="text-violet-300">{item.value}</span>
+          </div>
+        ))}
+      </pre>
+
+      {downloaded ? (
+        <div className="mt-3 rounded border border-emerald-400/20 bg-emerald-500/10 p-2 font-mono text-[11px] text-emerald-300">
+          $ kubectl apply -f resume.yaml → Downloaded Priyanshi_Kothari_Resume.pdf ✓
+        </div>
+      ) : null}
+    </div>
   );
 }

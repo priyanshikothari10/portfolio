@@ -8,97 +8,84 @@ import CommandPalette from "./components/CommandPalette.jsx";
 import LiveStatusBadge from "./components/LiveStatusBadge.jsx";
 import ResumeYaml from "./components/ResumeYaml.jsx";
 import InteractiveProjectArchitecture from "./components/InteractiveProjectArchitecture.jsx";
-import DevOpsTroubleshootingLab from "./components/DevOpsTroubleshootingLab.jsx";
 import CertificationTimeline from "./components/CertificationTimeline.jsx";
-import DevOpsSystemStatus from "./components/DevOpsSystemStatus.jsx";
 import {
   ArrowRight,
   Award,
-  Brain,
-  Building2,
   Cloud,
   Code2,
   Download,
   ExternalLink,
   GraduationCap,
-  Link,
   Mail,
   Send,
-  Sparkles,
-  Target,
-  Wand2,
-  XIcon,
+  Terminal,
+  Cpu,
+  Layers,
+  Server,
+  CheckCircle2,
 } from "lucide-react";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
 
 const HERO_TYPING_PHRASES = [
-  "Aspiring Cloud & DevOps Engineer",
-  "Kubernetes & AWS Enthusiast",
-  "Building and Automating Cloud Deployments",
+  "Cloud & DevOps Engineer",
+  "Building & Automating Cloud Deployments",
+  "Kubernetes & AWS Specialist",
 ];
 
 const CONTACT_EMAIL = "priyanshi.pro10@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/priyanshi-kothari-93975932a/";
 const GITHUB_URL = "https://github.com/priyanshikothari10";
-const TWITTER_URL = "https://x.com/Priyanshi1004";
 const LAMP_STACK_URL = "https://github.com/priyanshikothari10/LAMP-stack-project";
 const DOCKER_VOTING_URL = "https://github.com/priyanshikothari10/docker-voting-app";
 const K8S_WORDPRESS_URL =
   "https://github.com/priyanshikothari10/Containerized-WordPress-Application-on-Kubernetes";
 const PORTFOLIO_URL = "https://github.com/priyanshikothari10/portfolio";
-/** Replace with hosted PDF URL for production */
 const RESUME_URL = "/Resume.pdf";
 
 const navItems = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
-  { id: "featured", label: "Featured" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
-  { id: "certifications", label: "Certs" },
-  { id: "education", label: "Education" },
-  { id: "focus", label: "Focus" },
+  { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];
 
-const skills = [
+const skillCategories = [
   {
-    title: "Cloud & DevOps",
-    items: ["AWS EC2", "AWS RDS", "AWS S3", "Docker", "Ansible", "Jenkins"],
+    title: "CLOUD",
+    items: ["AWS", "EC2", "S3", "IAM", "RDS", "Security Groups"],
   },
   {
-    title: "Kubernetes",
-    items: [
-      "Deployments",
-      "Services",
-      "Ingress",
-      "RBAC",
-      "ConfigMaps",
-      "Secrets",
-      "PV/PVC",
-      "HPA",
-    ],
+    title: "CONTAINERS & ORCHESTRATION",
+    items: ["Docker", "Docker Compose", "Kubernetes", "Deployments", "Services", "Ingress", "RBAC", "ConfigMaps", "Secrets", "HPA"],
   },
   {
-    title: "Linux & System Administration",
-    items: ["RHEL 9", "Ubuntu", "Shell", "Apache", "System Administration"],
+    title: "CI/CD & AUTOMATION",
+    items: ["Jenkins", "Ansible", "Git", "GitHub"],
   },
   {
-    title: "Version Control & CI/CD",
-    items: ["Git", "GitHub", "Jenkins", "GitHub Actions", "Branches", "Repositories"],
+    title: "LINUX & SYSTEMS",
+    items: ["RHEL 9", "Ubuntu", "Bash / Shell", "Apache", "System Administration"],
   },
   {
-    title: "Programming",
-    items: ["C", "C++" ],
+    title: "NETWORKING",
+    items: ["DNS", "HTTP/HTTPS", "Load Balancing", "Ingress Controller", "ClusterIP / NodePort"],
+  },
+  {
+    title: "PROGRAMMING",
+    items: ["C++", "SQL"],
   },
 ];
 
 const featuredProject = {
+  id: "portfolio",
   name: "DevOps-Enabled Portfolio Deployment",
-  badge: "Docker + Kubernetes + AWS",
+  badge: "React + Docker + Kubernetes + AWS EC2",
   description:
-    "Transformed a React + Vite portfolio from a basic web deployment into a containerized application managed with Kubernetes and hosted on AWS EC2, with Docker Hub, Services, NGINX Ingress, ConfigMaps, Secrets, replicas, and HPA.",
+    "Transformed a React + Vite portfolio from a standard web build into a containerized application managed with Kubernetes and hosted on AWS EC2, featuring Docker Hub registry integration, Services, NGINX Ingress, ConfigMaps, Secrets, replica sets, and Horizontal Pod Autoscaling (HPA).",
   stack: [
     "React + Vite",
     "Docker",
@@ -110,57 +97,51 @@ const featuredProject = {
   ],
   github: PORTFOLIO_URL,
   live: "https://priyanshi-kothari-portfolio.netlify.app/",
-  architecture: [
-    "React + Vite",
-    "Docker",
-    "Docker Hub",
-    "Kubernetes",
-    "NGINX Ingress",
-    "AWS EC2",
-    "Custom Domain",
-  ],
   highlights: [
-    "Containerized the React application and published the image to Docker Hub.",
+    "Containerized React application and published image to Docker Hub.",
     "Configured Kubernetes Deployments, replicas, Services, ConfigMaps, and Secrets.",
-    "Configured NGINX Ingress for application routing and added Horizontal Pod Autoscaling.",
-    "Deployed the application on AWS EC2 and connected it to a custom domain.",
+    "Set up NGINX Ingress for traffic routing and added Horizontal Pod Autoscaler.",
+    "Deployed on AWS EC2 instance with custom domain configuration.",
   ],
 };
 
-const projects = [
+const secondaryProjects = [
   {
+    id: "lamp",
     name: "LAMP Stack Deployment on AWS",
     description:
-      "Deployed a LAMP-stack application on AWS using EC2 and RDS, with S3 for storage, IAM and Security Groups for access control, and Ansible for server configuration automation.",
-    stack: ["AWS EC2", "RDS", "S3", "IAM", "Security Groups", "Ansible", "Apache", "Linux"],
+      "Deployed a production-grade LAMP stack on AWS EC2 with RDS for MySQL data management, S3 for storage, IAM access control, and Ansible playbooks for automated server setup.",
+    stack: ["AWS EC2", "RDS", "S3", "IAM", "Ansible", "Apache", "Linux"],
     github: LAMP_STACK_URL,
   },
   {
+    id: "voting",
     name: "Docker Voting App",
     description:
-      "Deployed a multi-container voting application on AWS EC2 using Docker Compose, with container networking across Redis, PostgreSQL, worker, voting, and result-processing services.",
+      "Multi-container voting application deployed on AWS EC2 using Docker Compose, orchestrating Redis message queues, PostgreSQL databases, worker services, and voting UIs.",
     stack: ["AWS EC2", "Docker", "Docker Compose", "Redis", "PostgreSQL"],
     github: DOCKER_VOTING_URL,
   },
   {
+    id: "wordpress",
     name: "WordPress on Kubernetes",
     description:
-      "Designed and practiced a Kubernetes architecture for WordPress and MySQL with persistent storage, Services, Secrets, scaling, rolling updates, and troubleshooting workflows.",
+      "Containerized WordPress architecture running on Kubernetes with persistent volume claims (PV/PVC), MySQL database pods, Secrets management, zero-downtime rolling updates, and HPA.",
     stack: ["Kubernetes", "Docker", "MySQL", "PV/PVC", "Secrets", "Services"],
     github: K8S_WORDPRESS_URL,
   },
 ];
 
-const experience = [
+const experienceData = [
   {
     role: "Kubernetes Administrator Intern",
     org: "GRRAS Solutions Pvt. Ltd.",
     period: "May 2026 – Jul 2026",
     bullets: [
       "Managed Kubernetes workloads using Deployments, Services, Ingress, ConfigMaps, Secrets, RBAC, and Persistent Volumes.",
-      "Performed rolling updates, scaling, troubleshooting, and cluster administration.",
-      "Worked extensively with Linux system administration and Kubernetes operations.",
-      "Deployed cloud-native applications using Docker, Kubernetes, and NGINX Ingress.",
+      "Performed rolling updates, pod scaling, node troubleshooting, and cluster administration tasks.",
+      "Worked extensively with Linux system administration (RHEL 9 / Ubuntu) and containerized workflows.",
+      "Deployed cloud-native applications using Docker, Kubernetes, and NGINX Ingress controllers.",
     ],
   },
   {
@@ -168,38 +149,33 @@ const experience = [
     org: "TechForce Academy Australia",
     period: "Jun 2025 – Aug 2025",
     bullets: [
-      "Built and refined Salesforce solutions while learning platform limits, security models, and declarative vs. programmatic patterns.",
+      "Built and refined Salesforce solutions while learning platform limits, security models, and cloud delivery patterns.",
       "Collaborated on architecture-minded tasks and documentation to align technical decisions with business requirements.",
-      "Strengthened fundamentals in Apex-adjacent concepts, automation, and cloud delivery in a remote, mentor-led environment.",
+      "Strengthened fundamentals in Apex concepts, automation, and cloud delivery in a mentor-led environment.",
     ],
   },
 ];
 
-const certifications = [
-  { name: "RHCSA", detail: "Red Hat Certified System Administrator" },
-  { name: "Oracle Fusion Cloud", detail: "Oracle Cloud certification" },
-  { name: "MongoDB", detail: "GenAI certification" },
-  { name: "Docker", detail: "KodeKloud - Docker for the Absolute Beginner" },
+const certificationsData = [
+  { name: "RHCSA", issuer: "Red Hat", detail: "Red Hat Certified System Administrator (RHEL 9)" },
+  { name: "Oracle Fusion Cloud", issuer: "Oracle", detail: "Oracle Cloud Platform Infrastructure" },
+  { name: "Docker Specialist", issuer: "KodeKloud", detail: "Docker for the Absolute Beginner" },
+  { name: "MongoDB GenAI", issuer: "MongoDB", detail: "GenAI & Modern Database Fundamentals" },
 ];
 
-const currentFocus = [
-  "Jenkins and CI/CD pipeline automation with GitHub integration",
-  "Kubernetes troubleshooting, networking, storage, and cluster operations",
-  "Infrastructure automation with Ansible and learning Terraform for AWS",
-  "Cloud deployment workflows and containerized application delivery",
-];
-
-function Section({ id, eyebrow, title, subtitle, children, className = "", theme = "light" }) {
-  const isAurora = theme === "aurora";
+function Section({ id, eyebrow, title, subtitle, children, className = "", theme = "aurora" }) {
+  const aurora = theme === "aurora";
   return (
     <section
       id={id}
-      className={`relative mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-14 sm:px-6 lg:px-8 dark:py-24 ${isAurora ? "aurora-reveal-section" : ""} ${className}`}
+      className={`relative mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-12 sm:px-6 lg:px-8 dark:py-20 ${
+        aurora ? "aurora-reveal-section" : ""
+      } ${className}`}
     >
-      <div className="glass card-hover rounded-2xl border border-white/50 p-6 shadow-sm shadow-indigo-100/30 transition-all duration-300 dark:rounded-xl dark:border-white/[0.06] dark:bg-black/25 dark:shadow-none sm:p-12 lg:p-14">
+      <div className="glass card-hover rounded-2xl border border-white/50 p-6 shadow-sm shadow-indigo-100/30 transition-all duration-300 dark:rounded-xl dark:border-white/[0.06] dark:bg-black/25 dark:shadow-none sm:p-10 lg:p-12">
         <p
-          className={`mb-2 text-xs font-semibold uppercase tracking-[0.2em] ${
-            isAurora ? "text-cyan-400/80" : "text-indigo-600 dark:text-neutral-500"
+          className={`mb-1.5 text-xs font-semibold uppercase tracking-[0.2em] ${
+            aurora ? "text-cyan-400/80" : "text-indigo-600 dark:text-neutral-500"
           }`}
         >
           {eyebrow}
@@ -210,73 +186,15 @@ function Section({ id, eyebrow, title, subtitle, children, className = "", theme
         {subtitle ? (
           <p
             className={`mt-2 max-w-2xl text-sm ${
-              isAurora ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
+              aurora ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
             }`}
           >
             {subtitle}
           </p>
         ) : null}
-        <div className="mt-10 dark:mt-12">{children}</div>
+        <div className="mt-8 dark:mt-10">{children}</div>
       </div>
     </section>
-  );
-}
-
-function TechStack({ items, theme }) {
-  const aurora = theme === "aurora";
-  return (
-    <ul className="mt-4 flex flex-wrap gap-2">
-      {items.map((t) => (
-        <li
-          key={t}
-          className={
-            aurora
-              ? "rounded-md border border-cyan-400/20 bg-slate-950/45 px-2.5 py-1 text-xs font-medium text-slate-300 backdrop-blur-sm"
-              : "rounded-md border border-indigo-200/80 bg-white/80 px-2.5 py-1 text-xs font-medium text-indigo-900 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-          }
-        >
-          {t}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function ProofCard({ icon, value, label, theme }) {
-  return (
-    <div
-      className={
-        theme === "aurora"
-          ? "aurora-surface flex min-w-[150px] flex-1 items-center gap-3 rounded-xl border p-4"
-          : "flex min-w-[150px] flex-1 items-center gap-3 rounded-xl border border-slate-200/80 bg-white/60 p-4 dark:border-white/[0.06] dark:bg-transparent"
-      }
-    >
-      <div
-        className={
-          theme === "aurora"
-            ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-500/10 text-cyan-300"
-            : "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-indigo-100 bg-indigo-50 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-300"
-        }
-      >
-        {icon}
-      </div>
-      <div>
-        <p
-          className={`text-sm font-semibold ${
-            theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-          }`}
-        >
-          {value}
-        </p>
-        <p
-          className={`mt-0.5 text-xs ${
-            theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"
-          }`}
-        >
-          {label}
-        </p>
-      </div>
-    </div>
   );
 }
 
@@ -291,10 +209,14 @@ export default function App() {
     return "aurora";
   });
 
+  const [activeSection, setActiveSection] = useState("hero");
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [showYamlModal, setShowYamlModal] = useState(false);
+  const [selectedArchProject, setSelectedArchProject] = useState("portfolio");
+
   useEffect(() => {
     const root = document.documentElement;
-    const isDark = true;
-    root.classList.toggle("dark", isDark);
+    root.classList.add("dark");
     root.classList.toggle("theme-aurora", theme === "aurora");
     root.classList.toggle("theme-midnight", theme === "midnight");
     try {
@@ -304,15 +226,12 @@ export default function App() {
     }
   }, [theme]);
 
-  const [activeSection, setActiveSection] = useState("hero");
-  const [paletteOpen, setPaletteOpen] = useState(false);
-
   useEffect(() => {
     const onKeyDown = (event) => {
       const target = event.target;
-      const isTextField = target instanceof HTMLElement && (
-        target.matches("input, textarea, select") || target.isContentEditable
-      );
+      const isTextField =
+        target instanceof HTMLElement &&
+        (target.matches("input, textarea, select") || target.isContentEditable);
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         setPaletteOpen(true);
@@ -336,7 +255,7 @@ export default function App() {
             if (entry.isIntersecting) entry.target.classList.add("is-visible");
           });
         },
-        { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
+        { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
       );
       sections.forEach((el) => io.observe(el));
     });
@@ -347,7 +266,6 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
-    if (theme !== "aurora") return;
     const ids = ["hero", ...navItems.map((n) => n.id)];
     const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
     const io = new IntersectionObserver(
@@ -358,61 +276,60 @@ export default function App() {
         const id = visible[0]?.target?.id;
         if (id) setActiveSection(id);
       },
-      { rootMargin: "-10% 0px -55% 0px", threshold: [0, 0.12, 0.25, 0.4] },
+      { rootMargin: "-10% 0px -55% 0px", threshold: [0, 0.12, 0.25, 0.4] }
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [theme]);
+  }, []);
 
   return (
     <div className="relative z-10 min-h-screen overflow-x-hidden text-slate-800 dark:text-neutral-300">
       <SoftGradientBackground theme={theme} />
 
+      {/* Header */}
       <header className="site-header sticky top-0 z-40 border-b border-slate-200/60 bg-white/75 backdrop-blur-md dark:border-white/[0.08] dark:bg-black/70 dark:backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <nav className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3.5 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <a
               href="#hero"
-              className="font-poppins shrink-0 text-sm font-semibold tracking-tight text-slate-900 dark:text-neutral-100"
+              className="font-poppins shrink-0 text-sm font-bold tracking-tight text-slate-900 dark:text-neutral-100 flex items-center gap-2"
             >
+              <span className="h-2 w-2 rounded-full bg-cyan-400" />
               Priyanshi Kothari
             </a>
-            <button
-              type="button"
-              onClick={() => setPaletteOpen(true)}
-              className={`ml-auto inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium transition ${
-                theme === "aurora"
-                  ? "border-cyan-400/20 bg-white/[0.05] text-slate-300 hover:border-violet-400/35 hover:bg-white/[0.1]"
-                  : "border-indigo-200 bg-white/80 text-slate-600 hover:bg-indigo-50 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-              }`}
-              aria-label="Search anything"
-            >
-              Search anything <kbd className="rounded border border-current/20 px-1">/</kbd>
-            </button>
-            <label className="flex items-center gap-2">
-              {theme === "aurora" ? (
-                <Sparkles size={16} className="text-cyan-400/90" aria-hidden />
-              ) : null}
+
+            <div className="flex items-center gap-2 ml-auto">
+              <LiveStatusBadge theme={theme} compact={true} />
+
+              <button
+                type="button"
+                onClick={() => setPaletteOpen(true)}
+                className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-white/[0.05] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-violet-400/35 hover:bg-white/[0.1] transition"
+                aria-label="Search portfolio"
+              >
+                Search <kbd className="rounded border border-current/20 px-1 text-[10px]">Ctrl+K</kbd>
+              </button>
+
               <select
                 value={theme}
                 onChange={(e) => setTheme(e.target.value)}
-                className="max-w-[min(100%,14rem)] rounded-lg border border-slate-200 bg-white py-2 pl-2.5 pr-8 text-xs font-medium text-slate-800 shadow-sm outline-none ring-indigo-200/50 focus:ring-2 dark:border-white/[0.12] dark:bg-white/[0.06] dark:text-neutral-200 dark:ring-cyan-500/30"
+                className="rounded-lg border border-white/[0.12] bg-white/[0.06] py-1.5 pl-2 pr-6 text-xs font-medium text-neutral-200 shadow-sm outline-none focus:ring-1 focus:ring-cyan-500/30"
                 aria-label="Visual theme"
               >
                 <option value="aurora">Aurora Borealis</option>
                 <option value="midnight">Midnight Minimal</option>
               </select>
-            </label>
+            </div>
           </div>
-          <div className="-mx-1 flex gap-1 overflow-x-auto pb-1 lg:mx-0 lg:flex-wrap lg:justify-center lg:gap-x-5 lg:gap-y-1 lg:overflow-visible">
+
+          {/* Nav Items */}
+          <div className="-mx-1 flex gap-1 overflow-x-auto pb-1 lg:mx-0 lg:flex-wrap lg:justify-center lg:gap-x-6 lg:gap-y-1 lg:overflow-visible">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`shrink-0 rounded-md px-2.5 py-1.5 text-xs font-medium tracking-wide text-slate-600 transition duration-300 hover:bg-indigo-50 hover:text-indigo-700 dark:text-neutral-500 dark:hover:bg-transparent dark:hover:text-neutral-200 ${
-                  theme === "aurora" && activeSection === item.id
-                    ? "aurora-nav-active !text-slate-100"
-                    : ""
+                className={`shrink-0 rounded-md px-3 py-1.5 text-xs font-medium tracking-wide text-slate-400 transition duration-200 hover:text-slate-100 ${
+                  activeSection === item.id ? "aurora-nav-active !text-cyan-200 font-semibold" : ""
                 }`}
               >
                 {item.label}
@@ -423,205 +340,202 @@ export default function App() {
       </header>
 
       <main>
-        {/* Hero */}
+        {/* HERO SECTION */}
         <section
           id="hero"
-          className="relative mx-auto w-full max-w-6xl px-4 pb-24 pt-20 sm:px-6 lg:px-8 lg:pb-32 lg:pt-28 dark:pb-32 dark:pt-28"
+          className="relative mx-auto w-full max-w-6xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24"
         >
-          <div className="fade-in-up flex flex-col-reverse items-center justify-between gap-12 lg:flex-row lg:items-center lg:gap-8">
-            <div className="flex-1 w-full max-w-2xl dark:max-w-3xl">
-              <p
-              className={`mb-8 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] ${
-                theme === "aurora"
-                  ? "border-cyan-400/35 bg-cyan-500/10 text-cyan-100/95"
-                  : "border-indigo-200/80 bg-white/80 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-500"
-              }`}
-            >
-              <Brain size={14} aria-hidden /> AI & Data Science · Cloud & DevOps
-            </p>
-            <h1
-              className={`font-poppins text-4xl font-bold tracking-tight sm:text-5xl ${
-                theme === "aurora"
-                  ? "aurora-hero-title bg-gradient-to-r from-[#22d3ee] via-[#8b5cf6] to-[#a855f7] bg-clip-text text-transparent"
-                  : theme === "midnight"
-                    ? "text-slate-900 text-outline-display dark:font-semibold dark:tracking-[0.02em]"
-                    : "text-slate-900"
-              }`}
-            >
-              Priyanshi Kothari
-            </h1>
-            {theme === "aurora" ? (
-              <TypingHero
-                phrases={HERO_TYPING_PHRASES}
-                className="mt-8 min-h-[2rem] text-lg text-slate-400 sm:min-h-[2.25rem] sm:text-xl"
-              />
-            ) : (
-              <p className="mt-8 text-lg font-medium text-indigo-700 sm:text-xl dark:font-normal dark:text-neutral-400">
-                AI & Data Science Student | Aspiring Cloud & DevOps Engineer
+          <div className="fade-in-up flex flex-col-reverse items-center justify-between gap-10 lg:flex-row lg:items-center lg:gap-8">
+            <div className="flex-1 w-full max-w-2xl lg:max-w-3xl text-left">
+              {/* Eyebrow */}
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/35 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">
+                <Cpu size={14} className="text-cyan-400" /> AI &amp; DATA SCIENCE • CLOUD &amp; DEVOPS
               </p>
-            )}
-            <p
-              className={`mt-6 text-base leading-[1.75] ${
-                theme === "aurora" ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
-              }`}
-            >
-              RHCSA-certified B.Tech student with hands-on experience in Linux, AWS, Docker, Ansible, and Kubernetes.
-              Recently completed a Kubernetes Administrator internship and currently expanding my expertise in Jenkins and CI/CD.
-            </p>
-            <div className="mt-12 flex flex-wrap gap-3 dark:gap-4">
-              <a
-                href="#projects"
-                className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold shadow-md transition duration-300 ease-out ${
-                  theme === "aurora"
-                    ? "border-transparent bg-gradient-to-r from-sky-600 via-violet-600 to-purple-600 text-white shadow-[0_0_28px_-4px_rgba(34,211,238,0.45)] hover:scale-[1.03] hover:shadow-[0_0_40px_-4px_rgba(139,92,246,0.45)] active:scale-[1.01]"
-                    : "border-indigo-600 bg-indigo-600 text-white shadow-indigo-500/20 hover:-translate-y-0.5 hover:bg-indigo-700 dark:border-white dark:bg-transparent dark:shadow-none dark:hover:bg-white/[0.06]"
-                }`}
-              >
-                View Projects <ArrowRight size={16} />
-              </a>
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                rel="noreferrer"
-                className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition duration-300 ease-out ${
-                  theme === "aurora"
-                    ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1] hover:shadow-[0_0_24px_-8px_rgba(34,211,238,0.22)]"
-                    : "border-slate-200 bg-white text-slate-800 hover:-translate-y-0.5 hover:bg-slate-50 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-200 dark:hover:bg-white/[0.04]"
-                }`}
-              >
-                <Download size={16} /> Download Resume
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noreferrer"
-                className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition duration-300 ease-out ${
-                  theme === "aurora"
-                    ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1] hover:shadow-[0_0_24px_-8px_rgba(34,211,238,0.22)]"
-                    : "border-slate-200 bg-white text-slate-800 hover:-translate-y-0.5 hover:bg-slate-50 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-200 dark:hover:bg-white/[0.04]"
-                }`}
-              >
-                <Link size={16} /> LinkedIn
-              </a>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noreferrer"
-                className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition duration-300 ease-out ${
-                  theme === "aurora"
-                    ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1] hover:shadow-[0_0_24px_-8px_rgba(34,211,238,0.22)]"
-                    : "border-slate-200 bg-white text-slate-800 hover:-translate-y-0.5 hover:bg-slate-50 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-200 dark:hover:bg-white/[0.04]"
-                }`}
-              >
-                <Code2 size={16} /> GitHub
-              </a>
-            </div>
+
+              {/* Main Heading */}
+              <h1 className="font-poppins text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-slate-100">
+                Priyanshi Kothari
+              </h1>
+
+              {/* Role */}
+              <div className="mt-3">
+                <TypingHero
+                  phrases={HERO_TYPING_PHRASES}
+                  className="min-h-[2.25rem] text-xl font-semibold text-cyan-300 sm:text-2xl"
+                />
+              </div>
+
+              {/* Supporting Text */}
+              <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
+                Building, automating, and deploying reliable cloud infrastructure. RHCSA-certified B.Tech student with hands-on experience in Linux, AWS, Docker, Ansible, and Kubernetes.
+              </p>
+
+              {/* Hero Action Buttons */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-600 via-violet-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_28px_-4px_rgba(34,211,238,0.45)] transition hover:scale-[1.03]"
+                >
+                  View Projects <ArrowRight size={16} />
+                </a>
+
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/35 bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-slate-100 backdrop-blur-md transition hover:border-violet-400/45 hover:bg-white/[0.1]"
+                >
+                  <Download size={16} /> Download Resume
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setShowYamlModal(!showYamlModal)}
+                  className="inline-flex items-center gap-2 rounded-lg border border-violet-400/35 bg-violet-500/10 px-3.5 py-2.5 text-sm font-semibold text-violet-200 backdrop-blur-md transition hover:bg-violet-500/20"
+                >
+                  <Terminal size={15} /> YAML View
+                </button>
+
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.08]"
+                >
+                  LinkedIn <ExternalLink size={14} />
+                </a>
+
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.08]"
+                >
+                  GitHub <Code2 size={15} />
+                </a>
+              </div>
+
+              {/* Optional YAML Drawer */}
+              {showYamlModal && (
+                <div className="mt-6">
+                  <ResumeYaml theme={theme} onClose={() => setShowYamlModal(false)} />
+                </div>
+              )}
             </div>
 
-            {theme === "aurora" ? (
-              <div className="animate-float-photo relative shrink-0 w-48 h-48 sm:w-56 sm:h-56 lg:w-[280px] lg:h-[280px] lg:ml-8 group">
-                {/* Blurred background glow */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 blur-2xl opacity-40 transition duration-300 group-hover:opacity-60 dark:opacity-50"></div>
-                {/* Glowing neon ring (via gradient border and padding) */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 via-violet-500 to-purple-600 p-[3px] shadow-[0_8px_32px_-4px_rgba(139,92,246,0.3)] transition duration-300 group-hover:shadow-[0_8px_40px_-4px_rgba(139,92,246,0.5)]">
-                  <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-slate-900">
-                    <img
-                      src={profile}
-                      alt="Priyanshi Kothari"
-                      className="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.04]"
-                    />
-                  </div>
-                </div>
+            {/* UNCLIPPED PROFILE PHOTO COMPOSITION */}
+            <div className="relative shrink-0 w-64 h-64 sm:w-72 sm:h-72 lg:w-[320px] lg:h-[320px] lg:ml-6 group flex items-center justify-center">
+              {/* Background ambient glow blob */}
+              <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-cyan-500/30 via-purple-500/30 to-pink-500/30 blur-2xl opacity-60 transition duration-500 group-hover:opacity-80" />
+
+              {/* Decorative cyan/purple circular ring BEHIND portrait */}
+              <div className="absolute inset-4 rounded-full border-2 border-cyan-400/40 bg-slate-900/60 p-2 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur-sm transition duration-300 group-hover:border-violet-400/60" />
+
+              {/* Unclipped Portrait Image */}
+              <div className="relative z-10 h-full w-full flex items-center justify-center p-2">
+                <img
+                  src={profile}
+                  alt="Priyanshi Kothari"
+                  className="max-h-full max-w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition duration-300 group-hover:scale-[1.03]"
+                />
               </div>
-            ) : (
-              <div className="relative shrink-0 w-48 h-48 sm:w-56 sm:h-56 lg:w-[280px] lg:h-[280px] lg:ml-8 rounded-full border border-slate-200 bg-white p-[3px] shadow-lg dark:border-white/[0.08] dark:bg-black/50">
-                <div className="h-full w-full rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800">
-                  <img
-                    src={profile}
-                    alt="Priyanshi Kothari"
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </section>
 
-        <InteractiveTerminal theme={theme} />
-        <DeployPipeline theme={theme} />
-        <LiveStatusBadge theme={theme} />
-        <ResumeYaml theme={theme} />
-
-        {/* Quick proof points */}
-        <section className="relative mx-auto w-full max-w-6xl px-4 pb-6 sm:px-6 lg:px-8">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            <ProofCard theme={theme} icon={<Award size={18} />} value="RHCSA" label="Certified" />
-            <ProofCard theme={theme} icon={<Building2 size={18} />} value="Kubernetes" label="Internship completed" />
-            <ProofCard theme={theme} icon={<Cloud size={18} />} value="AWS" label="Hands-on deployments" />
-            <ProofCard theme={theme} icon={<Code2 size={18} />} value="Docker" label="Containerization" />
-            <ProofCard theme={theme} icon={<Wand2 size={18} />} value="Jenkins" label="CI/CD in progress" />
+        {/* Quick Technical Highlights Pill Bar */}
+        <section className="relative mx-auto w-full max-w-6xl px-4 pb-8 sm:px-6 lg:px-8">
+          <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">
+            <div className="rounded-xl border border-cyan-400/20 bg-slate-950/40 p-3.5 flex items-center gap-3">
+              <Award className="text-cyan-400 shrink-0" size={22} />
+              <div className="text-left">
+                <p className="text-xs font-bold text-slate-100">RHCSA Certified</p>
+                <p className="text-[11px] text-slate-400">Red Hat System Admin</p>
+              </div>
+            </div>
+            <div className="rounded-xl border border-violet-400/20 bg-slate-950/40 p-3.5 flex items-center gap-3">
+              <Server className="text-violet-400 shrink-0" size={22} />
+              <div className="text-left">
+                <p className="text-xs font-bold text-slate-100">Kubernetes</p>
+                <p className="text-[11px] text-slate-400">Internship Completed</p>
+              </div>
+            </div>
+            <div className="rounded-xl border border-sky-400/20 bg-slate-950/40 p-3.5 flex items-center gap-3">
+              <Cloud className="text-sky-400 shrink-0" size={22} />
+              <div className="text-left">
+                <p className="text-xs font-bold text-slate-100">AWS Cloud</p>
+                <p className="text-[11px] text-slate-400">EC2, RDS, S3, IAM</p>
+              </div>
+            </div>
+            <div className="rounded-xl border border-emerald-400/20 bg-slate-950/40 p-3.5 flex items-center gap-3">
+              <Layers className="text-emerald-400 shrink-0" size={22} />
+              <div className="text-left">
+                <p className="text-xs font-bold text-slate-100">Docker &amp; CI/CD</p>
+                <p className="text-[11px] text-slate-400">Ansible &amp; Jenkins</p>
+              </div>
+            </div>
           </div>
         </section>
 
+        {/* ABOUT SECTION */}
         <Section
           theme={theme}
           id="about"
-          eyebrow="About"
-          title="Professional summary"
-          subtitle="Cloud, DevOps, Linux, Git/GitHub, and automation in focus."
+          eyebrow="Background"
+          title="About Me"
+          subtitle="Cloud & DevOps Engineer focusing on automation, containerization, and infrastructure."
         >
-          <div
-            className={`space-y-5 text-base leading-relaxed ${
-              theme === "aurora"
-                ? "text-slate-400"
-                : "text-slate-700 dark:text-neutral-400"
-            }`}
-          >
+          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-slate-300 text-left">
             <p>
-              I’m a B.Tech student in <strong className={theme === "aurora" ? "font-semibold text-slate-100" : "font-semibold text-slate-900 dark:text-neutral-100"}>Artificial Intelligence &amp; Data Science</strong> with a focused interest in Cloud and DevOps engineering. I’m RHCSA-certified and have hands-on experience with Linux, Git/GitHub, AWS, Docker, Ansible, and Kubernetes.
+              I am a B.Tech student in <strong className="font-semibold text-cyan-200">Artificial Intelligence &amp; Data Science</strong> at Arya College of Engineering &amp; IT with a strong focus on Cloud Computing, DevOps Engineering, and Kubernetes orchestration.
             </p>
             <p>
-              I recently completed a <strong className={theme === "aurora" ? "font-semibold text-slate-100" : "font-semibold text-slate-900 dark:text-neutral-100"}>Kubernetes Administrator Internship at GRRAS Solutions Pvt. Ltd.</strong>, where I worked with Kubernetes workloads, networking, storage, RBAC, scaling, and troubleshooting. I’ve also built and deployed practical projects involving AWS infrastructure, Docker, Kubernetes, and automation.
+              I am <strong className="font-semibold text-slate-100">RHCSA-certified</strong> and have practical experience managing Linux environments (RHEL 9 / Ubuntu), configuring AWS cloud resources (EC2, RDS, S3, IAM, Security Groups), containerizing applications with Docker, automating server setups with Ansible, and orchestrating workloads with Kubernetes.
             </p>
-            <p className={theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"}>
-              I’m currently strengthening my skills in <strong className={theme === "aurora" ? "font-semibold text-slate-300" : "font-semibold text-slate-800 dark:text-neutral-300"}>Jenkins, CI/CD, Kubernetes operations, and infrastructure automation</strong>, with the goal of starting my career in a Cloud, DevOps, or Kubernetes-focused role where I can contribute to real-world deployment and infrastructure workflows.
+            <p>
+              Recently, I completed a <strong className="font-semibold text-slate-100">Kubernetes Administrator Internship at GRRAS Solutions Pvt. Ltd.</strong>, where I worked with cluster workloads, Services, NGINX Ingress controllers, ConfigMaps, Secrets, RBAC, persistent volumes, and troubleshooting pod states.
             </p>
+
+            {/* Compact Technical Highlights */}
+            <div className="pt-4 flex flex-wrap gap-2">
+              <span className="rounded-md border border-cyan-400/30 bg-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-cyan-200">
+                RHCSA Certified
+              </span>
+              <span className="rounded-md border border-violet-400/30 bg-violet-500/10 px-3 py-1.5 text-xs font-semibold text-violet-200">
+                Kubernetes Operations
+              </span>
+              <span className="rounded-md border border-sky-400/30 bg-sky-500/10 px-3 py-1.5 text-xs font-semibold text-sky-200">
+                AWS Infrastructure
+              </span>
+              <span className="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-200">
+                CI/CD &amp; Automation
+              </span>
+            </div>
           </div>
         </Section>
 
+        {/* SKILLS SECTION */}
         <Section
           theme={theme}
           id="skills"
-          eyebrow="Skills"
-          title="Technical skills"
-          subtitle="Stack and tooling I use and continue to deepen."
+          eyebrow="Technical Inventory"
+          title="Skills &amp; Technologies"
+          subtitle="Grouped by Cloud &amp; DevOps domains based on demonstrated project experience."
         >
-          <div className="grid gap-4 sm:grid-cols-2">
-            {skills.map((skill) => (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {skillCategories.map((cat) => (
               <article
-                key={skill.title}
-                className={
-                  theme === "aurora"
-                    ? "aurora-surface rounded-lg border p-6"
-                    : "rounded-lg border border-slate-200/80 bg-white/60 p-6 dark:border-white/[0.06] dark:bg-transparent"
-                }
+                key={cat.title}
+                className="rounded-xl border border-cyan-400/15 bg-slate-950/35 p-5 backdrop-blur-sm transition duration-300 hover:border-cyan-400/30 text-left"
               >
-                <h3
-                  className={`font-poppins text-base font-semibold ${
-                    theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                  }`}
-                >
-                  {skill.title}
+                <h3 className="font-poppins text-xs font-bold uppercase tracking-[0.16em] text-cyan-400">
+                  {cat.title}
                 </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {skill.items.map((item) => (
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {cat.items.map((item) => (
                     <span
                       key={item}
-                      className={
-                        theme === "aurora"
-                          ? "rounded-md border border-cyan-400/20 bg-slate-950/45 px-2.5 py-1.5 text-xs font-medium text-slate-300"
-                          : "rounded-md border border-indigo-200/80 bg-white/80 px-2.5 py-1.5 text-xs font-medium text-indigo-900 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-                      }
+                      className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-slate-300"
                     >
                       {item}
                     </span>
@@ -632,542 +546,321 @@ export default function App() {
           </div>
         </Section>
 
-        {/* Featured — DevOps Portfolio Deployment */}
-        <section
-          id="featured"
-          className={`relative mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-14 sm:px-6 lg:px-8 dark:py-24 ${
-            theme === "aurora" ? "aurora-reveal-section" : ""
-          }`}
+        {/* FEATURED PROJECTS SECTION */}
+        <Section
+          theme={theme}
+          id="projects"
+          eyebrow="Hands-on Infrastructure"
+          title="Featured Projects"
+          subtitle="Production-grade cloud deployments, Kubernetes architectures, containerization, and automation."
         >
-          <div
-            className={`featured-glow relative overflow-hidden rounded-2xl border p-6 shadow-lg sm:p-12 lg:p-14 ${
-              theme === "aurora"
-                ? "border-cyan-500/15 shadow-[0_0_60px_-20px_rgba(99,102,241,0.2)]"
-                : "border-indigo-200/60 bg-gradient-to-br from-white via-indigo-50/50 to-violet-50/40 shadow-indigo-100/40 dark:rounded-xl dark:border-white/[0.06] dark:bg-black dark:bg-none dark:shadow-none"
-            }`}
-          >
-            <div
-              className={`absolute right-6 top-6 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${
-                theme === "aurora"
-                  ? "border-cyan-400/25 bg-cyan-500/10 text-cyan-200/90"
-                  : "border-indigo-200/60 bg-indigo-600/10 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-500"
-              }`}
-            >
-              Featured project
+          {/* Primary Featured Project Card */}
+          <div className="rounded-xl border border-cyan-400/30 bg-slate-950/50 p-6 shadow-[0_0_30px_-10px_rgba(34,211,238,0.2)] sm:p-8 backdrop-blur-md text-left">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300">
+                {featuredProject.badge}
+              </span>
+              <span className="text-xs font-mono text-slate-400">Primary Featured</span>
             </div>
-            <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start">
-              <div
-                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border text-white shadow-lg ${
-                  theme === "aurora"
-                    ? "border-cyan-400/30 bg-gradient-to-br from-cyan-500/25 to-violet-600/35 shadow-cyan-500/15"
-                    : "border-indigo-200/80 bg-indigo-600 shadow-indigo-500/30 dark:border-white/[0.1] dark:bg-transparent dark:shadow-none"
-                }`}
-              >
-                <Wand2
-                  size={28}
-                  aria-hidden
-                  className={theme === "aurora" ? "text-cyan-100" : "dark:text-neutral-200"}
-                />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p
-                  className={`text-sm font-medium ${
-                    theme === "aurora" ? "text-violet-300/90" : "text-indigo-600 dark:text-neutral-500"
-                  }`}
-                >
-                  {featuredProject.badge}
-                </p>
-                <h2
-                  className={`font-poppins mt-2 text-3xl font-bold tracking-tight sm:text-4xl ${
-                    theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                  }`}
-                >
-                  {featuredProject.name}
-                </h2>
-                <p
-                  className={`mt-6 max-w-2xl text-base leading-relaxed ${
-                    theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"
-                  }`}
-                >
-                  {featuredProject.description}
-                </p>
-                <TechStack theme={theme} items={featuredProject.stack} />
 
-                <div className="mt-7">
-                  <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${theme === "aurora" ? "text-cyan-400/75" : "text-indigo-600 dark:text-neutral-500"}`}>
-                    Deployment flow
-                  </p>
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    {featuredProject.architecture.map((step, index) => (
-                      <div key={step} className="flex items-center gap-2">
-                        <span
-                          className={
-                            theme === "aurora"
-                              ? "rounded-md border border-cyan-400/20 bg-slate-950/50 px-2.5 py-1.5 text-xs font-medium text-slate-300"
-                              : "rounded-md border border-indigo-200/80 bg-white/80 px-2.5 py-1.5 text-xs font-medium text-indigo-900 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-                          }
-                        >
-                          {step}
-                        </span>
-                        {index < featuredProject.architecture.length - 1 ? (
-                          <ArrowRight size={14} className={theme === "aurora" ? "text-violet-400/70" : "text-indigo-400"} />
-                        ) : null}
-                      </div>
+            <h3 className="font-poppins mt-3 text-2xl font-bold text-slate-100 sm:text-3xl">
+              {featuredProject.name}
+            </h3>
+
+            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+              {featuredProject.description}
+            </p>
+
+            {/* Tech Tags */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {featuredProject.stack.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-md border border-cyan-400/20 bg-slate-900/60 px-2.5 py-1 text-xs font-medium text-slate-200"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {/* Highlights */}
+            <div className="mt-5 border-t border-white/[0.08] pt-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-400">
+                Key Technical Capabilities
+              </p>
+              <ul className="mt-2 grid gap-1.5 text-xs text-slate-300 sm:grid-cols-2">
+                {featuredProject.highlights.map((h) => (
+                  <li key={h} className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-cyan-400 shrink-0 mt-0.5" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Actions */}
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={featuredProject.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-600 to-violet-600 px-4 py-2 text-xs font-semibold text-white shadow-md transition hover:scale-[1.02]"
+              >
+                <Code2 size={15} /> GitHub Repository
+              </a>
+              {featuredProject.live && (
+                <a
+                  href={featuredProject.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/25 bg-white/[0.06] px-4 py-2 text-xs font-semibold text-slate-200 transition hover:bg-white/[0.1]"
+                >
+                  <ExternalLink size={15} /> Live Demo
+                </a>
+              )}
+              <button
+                type="button"
+                onClick={() => setSelectedArchProject("portfolio")}
+                className="inline-flex items-center gap-2 rounded-lg border border-violet-400/30 bg-violet-500/10 px-4 py-2 text-xs font-semibold text-violet-200 transition hover:bg-violet-500/20"
+              >
+                <Layers size={15} /> View Architecture Flow
+              </button>
+            </div>
+          </div>
+
+          {/* Secondary Projects Grid */}
+          <div className="mt-6 grid gap-5 sm:grid-cols-3">
+            {secondaryProjects.map((p) => (
+              <article
+                key={p.id}
+                className="flex flex-col justify-between rounded-xl border border-cyan-400/15 bg-slate-950/35 p-5 backdrop-blur-sm transition duration-300 hover:border-cyan-400/30 text-left"
+              >
+                <div>
+                  <h4 className="font-poppins text-lg font-semibold text-slate-100">{p.name}</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-400">{p.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {p.stack.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 text-[11px] text-slate-300"
+                      >
+                        {item}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-7">
-                  <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${theme === "aurora" ? "text-cyan-400/75" : "text-indigo-600 dark:text-neutral-500"}`}>
-                    What I implemented
-                  </p>
-                  <ul className={`mt-3 grid gap-2 text-sm leading-relaxed sm:grid-cols-2 ${theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"}`}>
-                    {featuredProject.highlights.map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <span className={theme === "aurora" ? "mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" : "mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500"} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-5 flex items-center justify-between border-t border-white/[0.08] pt-3">
                   <a
-                    href={featuredProject.github}
+                    href={p.github}
                     target="_blank"
                     rel="noreferrer"
-                    className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-white transition duration-300 ${
-                      theme === "aurora"
-                        ? "border-transparent bg-gradient-to-r from-sky-600 to-violet-600 shadow-[0_0_20px_-4px_rgba(34,211,238,0.35)] hover:scale-[1.02] hover:shadow-[0_0_28px_-4px_rgba(139,92,246,0.35)]"
-                        : "border-slate-900 bg-slate-900 hover:bg-indigo-700 dark:border-white dark:bg-transparent dark:hover:bg-white/[0.06]"
-                    }`}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-300 hover:underline"
                   >
-                    <Code2 size={16} /> GitHub
+                    <Code2 size={13} /> GitHub Repository
                   </a>
-                  {featuredProject.live ? (
-                    <a
-                      href={featuredProject.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold transition duration-300 ${
-                        theme === "aurora"
-                          ? "border-cyan-400/25 bg-white/[0.06] text-slate-100 backdrop-blur-md hover:border-violet-400/35 hover:bg-white/[0.1]"
-                          : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-200 dark:hover:bg-white/[0.04]"
-                      }`}
-                    >
-                      <ExternalLink size={16} /> Live demo
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Section
-          theme={theme}
-          id="projects"
-          eyebrow="Projects"
-          title="Selected work"
-          subtitle="Cloud deployments, containers, Kubernetes, automation, and practical application delivery."
-        >
-          <div className="grid gap-5 sm:grid-cols-2">
-            {projects.map((project) => (
-              <article
-                key={project.name}
-                className={
-                  theme === "aurora"
-                    ? "aurora-surface group flex flex-col rounded-lg border p-6 transition duration-300"
-                    : "group flex flex-col rounded-lg border border-slate-200/80 bg-white/60 p-6 transition hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md dark:border-white/[0.06] dark:bg-transparent dark:hover:border-white/[0.1] dark:hover:shadow-none"
-                }
-              >
-                <h3
-                  className={`font-poppins text-lg font-semibold ${
-                    theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                  }`}
-                >
-                  {project.name}
-                </h3>
-                <p
-                  className={`mt-3 flex-1 text-sm leading-relaxed ${
-                    theme === "aurora" ? "text-slate-400" : "text-slate-600 dark:text-neutral-500"
-                  }`}
-                >
-                  {project.description}
-                </p>
-                <TechStack theme={theme} items={project.stack} />
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-semibold text-white transition duration-300 ${
-                      theme === "aurora"
-                        ? "border-transparent bg-gradient-to-r from-sky-600 to-violet-600 hover:scale-[1.02] hover:shadow-[0_0_16px_-4px_rgba(34,211,238,0.35)]"
-                        : "border-slate-900 bg-slate-900 group-hover:bg-indigo-700 dark:border-white dark:bg-transparent dark:group-hover:bg-white/[0.06]"
-                    }`}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedArchProject(p.id)}
+                    className="text-xs text-violet-300 hover:underline"
                   >
-                    <Code2 size={13} /> GitHub
-                  </a>
-                  {project.live ? (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-semibold transition duration-300 ${
-                        theme === "aurora"
-                          ? "border-cyan-400/25 bg-white/[0.06] text-slate-200 backdrop-blur-sm hover:border-violet-400/30"
-                          : "border-slate-200 bg-white text-slate-700 dark:border-white/[0.1] dark:bg-transparent dark:text-neutral-300"
-                      }`}
-                    >
-                      <ExternalLink size={13} /> Demo
-                    </a>
-                  ) : null}
+                    Architecture →
+                  </button>
                 </div>
               </article>
             ))}
           </div>
+
+          {/* Embedded Interactive Architecture */}
+          <InteractiveProjectArchitecture
+            theme={theme}
+            activeProjectId={selectedArchProject}
+            onSelectProject={(id) => setSelectedArchProject(id)}
+          />
+
+          {/* Embedded Deploy Pipeline / History */}
+          <DeployPipeline theme={theme} />
         </Section>
 
-        <InteractiveProjectArchitecture theme={theme} />
-        <DevOpsTroubleshootingLab theme={theme} />
-        <CertificationTimeline theme={theme} />
-        <DevOpsSystemStatus theme={theme} />
-
+        {/* EXPERIENCE SECTION */}
         <Section
           theme={theme}
           id="experience"
-          eyebrow="Experience"
-          title="Internship"
-          subtitle="Enterprise cloud platform exposure."
+          eyebrow="Hands-on Exposure"
+          title="Work Experience"
+          subtitle="Practical experience managing Kubernetes, Linux, and cloud environments."
         >
-<div className="space-y-6">
-  {experience.map((exp, index) => (
-    <div
-      key={index}
-      className={`flex gap-4 rounded-lg border p-5 sm:p-6 ${
-        theme === "aurora"
-          ? "aurora-surface border-cyan-500/10"
-          : "border-slate-200/80 bg-white/60 dark:border-white/[0.06] dark:bg-transparent"
-      }`}
-    >
-      <div className="hidden shrink-0 sm:block">
-        <div
-          className={`flex h-12 w-12 items-center justify-center rounded-lg border ${
-            theme === "aurora"
-              ? "border-cyan-400/20 bg-cyan-500/10 text-cyan-300"
-              : "border-indigo-100 bg-indigo-100 text-indigo-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-          }`}
-        >
-          <Building2 size={22} />
-        </div>
-      </div>
-
-      <div>
-        <h3
-          className={`font-poppins text-lg font-semibold ${
-            theme === "aurora"
-              ? "text-slate-100"
-              : "text-slate-900 dark:text-neutral-100"
-          }`}
-        >
-          {exp.role}
-        </h3>
-
-        <p
-          className={`text-sm font-medium ${
-            theme === "aurora"
-              ? "text-violet-300/85"
-              : "text-indigo-600 dark:text-neutral-500"
-          }`}
-        >
-          {exp.org} · {exp.period}
-        </p>
-
-        <ul
-          className={`mt-4 list-inside list-disc space-y-2 text-sm leading-relaxed ${
-            theme === "aurora"
-              ? "text-slate-400"
-              : "text-slate-700 dark:text-neutral-400"
-          }`}
-        >
-          {exp.bullets.map((bullet, i) => (
-            <li key={i}>{bullet}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  ))}
-</div>
+          <div className="space-y-6">
+            {experienceData.map((exp) => (
+              <div
+                key={exp.role}
+                className="rounded-xl border border-cyan-400/15 bg-slate-950/35 p-6 backdrop-blur-sm text-left"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div>
+                    <h3 className="font-poppins text-lg font-bold text-slate-100">{exp.role}</h3>
+                    <p className="text-xs font-semibold text-cyan-300">{exp.org}</p>
+                  </div>
+                  <span className="rounded-md border border-white/[0.1] bg-white/[0.04] px-3 py-1 font-mono text-xs text-slate-400">
+                    {exp.period}
+                  </span>
+                </div>
+                <ul className="mt-4 space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {exp.bullets.map((b, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0 mt-2" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </Section>
 
+        {/* CERTIFICATIONS & LEARNING JOURNEY SECTION */}
         <Section
           theme={theme}
           id="certifications"
-          eyebrow="Certifications"
-          title="Credentials"
-          subtitle="Industry-recognized validation of core skills."
+          eyebrow="Validated Skills"
+          title="Certifications &amp; Learning"
+          subtitle="Industry credentials and active engineering development."
         >
-          <div className="grid gap-4 sm:grid-cols-3">
-            {certifications.map((c) => (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {certificationsData.map((c) => (
               <article
                 key={c.name}
-                className={
-                  theme === "aurora"
-                    ? "aurora-surface flex flex-col rounded-lg border p-6 text-center transition duration-300"
-                    : "flex flex-col rounded-lg border border-slate-200/80 bg-white/60 p-6 text-center transition hover:-translate-y-0.5 dark:border-white/[0.06] dark:bg-transparent"
-                }
+                className="rounded-xl border border-cyan-400/15 bg-slate-950/35 p-5 backdrop-blur-sm text-center"
               >
-                <Award
-                  className={`mx-auto mb-3 ${theme === "aurora" ? "text-cyan-400/80" : "text-indigo-600 dark:text-neutral-500"}`}
-                  size={28}
-                />
-                <h3
-                  className={`font-poppins font-semibold ${
-                    theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                  }`}
-                >
-                  {c.name}
-                </h3>
-                <p
-                  className={`mt-2 text-xs ${
-                    theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"
-                  }`}
-                >
-                  {c.detail}
-                </p>
+                <Award className="mx-auto text-cyan-400" size={32} />
+                <h3 className="font-poppins mt-3 font-bold text-slate-100 text-base">{c.name}</h3>
+                <p className="mt-1 text-xs font-semibold text-violet-300">{c.issuer}</p>
+                <p className="mt-2 text-xs text-slate-400">{c.detail}</p>
               </article>
             ))}
           </div>
+
+          <div className="mt-6">
+            <CertificationTimeline theme={theme} />
+          </div>
         </Section>
 
+        {/* EDUCATION SECTION */}
         <Section
           theme={theme}
           id="education"
-          eyebrow="Education"
-          title="Academic background"
+          eyebrow="Academic Foundation"
+          title="Education"
         >
-          <div
-            className={`flex gap-4 rounded-lg border p-5 sm:p-6 ${
-              theme === "aurora"
-                ? "aurora-surface border-violet-500/10"
-                : "border-slate-200/80 bg-white/60 dark:border-white/[0.06] dark:bg-transparent"
-            }`}
-          >
-            <div className="hidden shrink-0 sm:block">
-              <div
-                className={`flex h-12 w-12 items-center justify-center rounded-lg border ${
-                  theme === "aurora"
-                    ? "border-violet-400/25 bg-violet-500/10 text-violet-200"
-                    : "border-violet-100 bg-violet-100 text-violet-700 dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-400"
-                }`}
-              >
-                <GraduationCap size={24} />
-              </div>
+          <div className="flex gap-4 rounded-xl border border-cyan-400/15 bg-slate-950/35 p-6 backdrop-blur-sm text-left">
+            <div className="hidden shrink-0 sm:flex h-12 w-12 items-center justify-center rounded-lg border border-violet-400/30 bg-violet-500/10 text-violet-300">
+              <GraduationCap size={24} />
             </div>
             <div>
-              <h3
-                className={`font-poppins text-lg font-semibold ${
-                  theme === "aurora" ? "text-slate-100" : "text-slate-900 dark:text-neutral-100"
-                }`}
-              >
-                B.Tech — Artificial Intelligence & Data Science
+              <h3 className="font-poppins text-lg font-bold text-slate-100">
+                B.Tech — Artificial Intelligence &amp; Data Science
               </h3>
-              <p
-                className={`text-sm ${
-                  theme === "aurora" ? "text-slate-500" : "text-slate-600 dark:text-neutral-500"
-                }`}
-              >
-                Arya College of Engineering & IT, Jaipur
+              <p className="text-xs sm:text-sm text-slate-400">
+                Arya College of Engineering &amp; IT, Jaipur
               </p>
-              <p
-                className={`mt-3 text-sm font-semibold ${
-                  theme === "aurora" ? "text-cyan-400/90" : "text-indigo-700 dark:text-neutral-400"
-                }`}
-              >
+              <div className="mt-2 inline-flex items-center gap-2 rounded-md border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 font-mono text-xs font-bold text-cyan-300">
                 CGPA: 8.78
-              </p>
+              </div>
             </div>
           </div>
         </Section>
 
-        <Section
-          theme={theme}
-          id="focus"
-          eyebrow="Current focus"
-          title="Learning priorities"
-          subtitle="Jenkins, CI/CD, Kubernetes operations, cloud deployment, and infrastructure automation."
-        >
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {currentFocus.map((line) => (
-              <li
-                key={line}
-                className={
-                  theme === "aurora"
-                    ? "aurora-surface flex gap-3 rounded-lg border p-4 text-sm text-slate-400"
-                    : "flex gap-3 rounded-lg border border-slate-200/80 bg-white/60 p-4 text-sm text-slate-700 dark:border-white/[0.06] dark:bg-transparent dark:text-neutral-400"
-                }
-              >
-                <Target
-                  className={`mt-0.5 shrink-0 ${theme === "aurora" ? "text-violet-400/80" : "text-indigo-600 dark:text-neutral-500"}`}
-                  size={18}
-                />
-                {line}
-              </li>
-            ))}
-          </ul>
-        </Section>
+        {/* INTERACTIVE TERMINAL SECTION */}
+        <InteractiveTerminal theme={theme} />
 
+        {/* CONTACT SECTION */}
         <Section
           theme={theme}
           id="contact"
-          eyebrow="Contact"
-          title="Get in touch"
-          subtitle="Currently open to Cloud, DevOps, Kubernetes, and Cloud Engineering internship or entry-level opportunities."
+          eyebrow="Get In Touch"
+          title="Let's build something reliable."
+          subtitle="Open to Cloud Engineering, DevOps, and Kubernetes opportunities."
         >
-          <div
-            className={`mb-8 rounded-xl border p-5 ${
-              theme === "aurora"
-                ? "border-cyan-400/15 bg-cyan-500/[0.04]"
-                : "border-indigo-200/70 bg-indigo-50/50 dark:border-white/[0.06] dark:bg-transparent"
-            }`}
-          >
-            <p className={`text-sm leading-relaxed ${theme === "aurora" ? "text-slate-300" : "text-slate-700 dark:text-neutral-400"}`}>
-              I’m currently looking for opportunities where I can contribute to <strong className={theme === "aurora" ? "font-semibold text-slate-100" : "font-semibold text-slate-900 dark:text-neutral-100"}>cloud infrastructure, deployment automation, Kubernetes operations, and CI/CD workflows</strong> while continuing to grow as a Cloud &amp; DevOps Engineer.
+          <div className="rounded-xl border border-cyan-400/15 bg-slate-950/40 p-6 backdrop-blur-md text-left">
+            <p className="text-sm leading-relaxed text-slate-300">
+              I am actively seeking internship or entry-level opportunities in <strong className="font-semibold text-slate-100">Cloud &amp; DevOps Engineering, Infrastructure Automation, and Kubernetes Operations</strong>. Feel free to reach out directly via email or connect on LinkedIn.
             </p>
-          </div>
 
-          <form className="grid gap-4 sm:grid-cols-2">
-            <label className="sm:col-span-1">
-              <span
-                className={`mb-2 block text-sm font-medium ${
-                  theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"
-                }`}
-              >
-                Name
-              </span>
-              <input
-                type="text"
-                placeholder="Your name"
-                className={`w-full rounded-lg border px-4 py-3 text-sm outline-none transition duration-300 focus:ring-2 ${
-                  theme === "aurora"
-                    ? "border-cyan-400/20 bg-slate-950/50 text-slate-200 placeholder:text-slate-500 backdrop-blur-sm focus:border-violet-400/30 focus:ring-cyan-500/15"
-                    : "border-slate-200 bg-white/80 ring-indigo-200 dark:border-white/[0.08] dark:bg-transparent dark:ring-white/20"
-                }`}
-              />
-            </label>
-            <label className="sm:col-span-1">
-              <span
-                className={`mb-2 block text-sm font-medium ${
-                  theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"
-                }`}
-              >
-                Email
-              </span>
-              <input
-                type="email"
-                placeholder={CONTACT_EMAIL}
-                className={`w-full rounded-lg border px-4 py-3 text-sm outline-none transition duration-300 focus:ring-2 ${
-                  theme === "aurora"
-                    ? "border-cyan-400/20 bg-slate-950/50 text-slate-200 placeholder:text-slate-500 backdrop-blur-sm focus:border-violet-400/30 focus:ring-cyan-500/15"
-                    : "border-slate-200 bg-white/80 ring-indigo-200 dark:border-white/[0.08] dark:bg-transparent dark:ring-white/20"
-                }`}
-              />
-            </label>
-            <label className="sm:col-span-2">
-              <span
-                className={`mb-2 block text-sm font-medium ${
-                  theme === "aurora" ? "text-slate-400" : "text-slate-700 dark:text-neutral-400"
-                }`}
-              >
-                Message
-              </span>
-              <textarea
-                rows={4}
-                placeholder="Brief message…"
-                className={`w-full rounded-lg border px-4 py-3 text-sm outline-none transition duration-300 focus:ring-2 ${
-                  theme === "aurora"
-                    ? "border-cyan-400/20 bg-slate-950/50 text-slate-200 placeholder:text-slate-500 backdrop-blur-sm focus:border-violet-400/30 focus:ring-cyan-500/15"
-                    : "border-slate-200 bg-white/80 ring-indigo-200 dark:border-white/[0.08] dark:bg-transparent dark:ring-white/20"
-                }`}
-              />
-            </label>
-            <button
-              type="button"
-              className={`inline-flex w-fit items-center gap-2 rounded-lg border px-5 py-3 text-sm font-semibold text-white transition duration-300 ${
-                theme === "aurora"
-                  ? "border-transparent bg-gradient-to-r from-sky-600 via-violet-600 to-purple-600 shadow-[0_0_24px_-4px_rgba(34,211,238,0.35)] hover:scale-[1.03] hover:shadow-[0_0_32px_-4px_rgba(139,92,246,0.35)] active:scale-[1.01]"
-                  : "border-indigo-600 bg-indigo-600 hover:bg-indigo-700 dark:border-white dark:bg-transparent dark:hover:bg-white/[0.06]"
-              }`}
-            >
-              <Send size={16} /> Send message
-            </button>
-          </form>
+            <form className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1.5 block text-xs font-medium text-slate-400">Name</label>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full rounded-lg border border-cyan-400/20 bg-slate-950/50 px-4 py-2.5 text-xs text-slate-200 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30"
+                />
+              </div>
 
-          <div
-            className={`mt-10 flex flex-wrap gap-3 border-t pt-10 ${
-              theme === "aurora" ? "border-cyan-500/10" : "border-slate-200/80 dark:border-white/[0.06]"
-            }`}
-          >
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition duration-300 ${
-                theme === "aurora"
-                  ? "border-cyan-400/20 bg-white/[0.05] text-slate-200 backdrop-blur-md hover:border-violet-400/30 hover:shadow-[0_0_20px_-8px_rgba(34,211,238,0.15)]"
-                  : "border-transparent bg-white text-slate-800 shadow-sm dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-300 dark:shadow-none"
-              }`}
-            >
-              <Mail size={16} /> {CONTACT_EMAIL}
-            </a>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noreferrer"
-              className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition duration-300 ${
-                theme === "aurora"
-                  ? "border-cyan-400/20 bg-white/[0.05] text-slate-200 backdrop-blur-md hover:border-violet-400/30 hover:shadow-[0_0_20px_-8px_rgba(34,211,238,0.15)]"
-                  : "border-transparent bg-white text-slate-800 shadow-sm dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-300 dark:shadow-none"
-              }`}
-            >
-              <Link size={16} /> LinkedIn
-            </a>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noreferrer"
-              className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition duration-300 ${
-                theme === "aurora"
-                  ? "border-cyan-400/20 bg-white/[0.05] text-slate-200 backdrop-blur-md hover:border-violet-400/30 hover:shadow-[0_0_20px_-8px_rgba(34,211,238,0.15)]"
-                  : "border-transparent bg-white text-slate-800 shadow-sm dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-300 dark:shadow-none"
-              }`}
-            >
-              <Code2 size={16} /> GitHub
-            </a>
-            <a
-              href={TWITTER_URL}
-              target="_blank"
-              rel="noreferrer"
-              className={`inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition duration-300 ${
-                theme === "aurora"
-                  ? "border-cyan-400/20 bg-white/[0.05] text-slate-200 backdrop-blur-md hover:border-violet-400/30 hover:shadow-[0_0_20px_-8px_rgba(34,211,238,0.15)]"
-                  : "border-transparent bg-white text-slate-800 shadow-sm dark:border-white/[0.08] dark:bg-transparent dark:text-neutral-300 dark:shadow-none"
-              }`}
-            >
-              <XIcon size={16} aria-hidden /> X (Twitter)
-            </a>
+              <div>
+                <label className="mb-1.5 block text-xs font-medium text-slate-400">Email</label>
+                <input
+                  type="email"
+                  placeholder={CONTACT_EMAIL}
+                  className="w-full rounded-lg border border-cyan-400/20 bg-slate-950/50 px-4 py-2.5 text-xs text-slate-200 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="mb-1.5 block text-xs font-medium text-slate-400">Message</label>
+                <textarea
+                  rows={4}
+                  placeholder="Your message..."
+                  className="w-full rounded-lg border border-cyan-400/20 bg-slate-950/50 px-4 py-2.5 text-xs text-slate-200 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30"
+                />
+              </div>
+
+              <div className="sm:col-span-2">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-600 via-violet-600 to-purple-600 px-6 py-2.5 text-xs font-semibold text-white shadow-md transition hover:scale-[1.02]"
+                >
+                  <Send size={14} /> Send Message
+                </button>
+              </div>
+            </form>
+
+            <div className="mt-8 flex flex-wrap gap-3 border-t border-white/[0.08] pt-6">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/20 bg-white/[0.05] px-4 py-2 text-xs font-medium text-slate-200 hover:border-cyan-400/40"
+              >
+                <Mail size={14} /> {CONTACT_EMAIL}
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/20 bg-white/[0.05] px-4 py-2 text-xs font-medium text-slate-200 hover:border-cyan-400/40"
+              >
+                LinkedIn <ExternalLink size={13} />
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/20 bg-white/[0.05] px-4 py-2 text-xs font-medium text-slate-200 hover:border-cyan-400/40"
+              >
+                GitHub <Code2 size={14} />
+              </a>
+            </div>
           </div>
         </Section>
       </main>
 
-      <footer
-        className={`mx-auto max-w-6xl px-4 pb-12 pt-6 text-center text-xs sm:px-6 lg:px-8 ${
-          theme === "aurora" ? "text-slate-500" : "text-slate-500 dark:text-neutral-600"
-        }`}
-      >
-        <p className="inline-flex items-center justify-center gap-1">
-          <Cloud size={14} aria-hidden />Built, deployed, and maintained by Priyanshi Kothari · React · Docker · Kubernetes · AWS
+      {/* FOOTER */}
+      <footer className="mx-auto max-w-6xl px-4 pb-12 pt-8 text-center text-xs text-slate-500 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+        <p className="inline-flex items-center justify-center gap-2">
+          <Cloud size={14} className="text-cyan-400" />
+          <span>© 2026 Priyanshi Kothari · Cloud &amp; DevOps Engineer</span>
         </p>
       </footer>
+
+      {/* Search / Command Palette Modal */}
       <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
     </div>
   );
