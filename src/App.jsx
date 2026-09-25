@@ -5,9 +5,7 @@ import TypingHero from "./components/TypingHero.jsx";
 import InteractiveTerminal from "./components/InteractiveTerminal.jsx";
 import DeployPipeline from "./components/DeployPipeline.jsx";
 import CommandPalette from "./components/CommandPalette.jsx";
-import HPAScalingSimulator from "./components/HPAScalingSimulator.jsx";
 import LiveStatusBadge from "./components/LiveStatusBadge.jsx";
-import DeployHistory from "./components/DeployHistory.jsx";
 import ResumeYaml from "./components/ResumeYaml.jsx";
 import {
   ArrowRight,
@@ -547,9 +545,7 @@ export default function App() {
 
         <InteractiveTerminal theme={theme} />
         <DeployPipeline theme={theme} />
-        <HPAScalingSimulator theme={theme} />
         <LiveStatusBadge theme={theme} />
-        <DeployHistory theme={theme} />
         <ResumeYaml theme={theme} />
 
         {/* Quick proof points */}
