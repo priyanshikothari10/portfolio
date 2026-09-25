@@ -9,6 +9,8 @@ import LiveStatusBadge from "./components/LiveStatusBadge.jsx";
 import ResumeYaml from "./components/ResumeYaml.jsx";
 import InteractiveProjectArchitecture from "./components/InteractiveProjectArchitecture.jsx";
 import DevOpsTroubleshootingLab from "./components/DevOpsTroubleshootingLab.jsx";
+import CertificationTimeline from "./components/CertificationTimeline.jsx";
+import DevOpsSystemStatus from "./components/DevOpsSystemStatus.jsx";
 import {
   ArrowRight,
   Award,
@@ -829,6 +831,8 @@ export default function App() {
 
         <InteractiveProjectArchitecture theme={theme} />
         <DevOpsTroubleshootingLab theme={theme} />
+        <CertificationTimeline theme={theme} />
+        <DevOpsSystemStatus theme={theme} />
 
         <Section
           theme={theme}
